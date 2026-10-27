@@ -1,0 +1,732 @@
+/* style.css */
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES
+   ========================================================================== */
+   :root {
+    /* Pink Champagne & Golden Mischief Palette */
+    --color-blush-pink: #E8B8C8;
+    --color-powder-pink: #F6DDE5;
+    --color-rose: #C77F9B;
+    --color-champagne: #F4E6C8;
+    --color-soft-gold: #C7A35A;
+    --color-deep-rose: #674653;
+    --color-warm-ivory: #FFF9F0;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-handwriting: 'Caveat', cursive;
+    
+    --space-sm: 12px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 96px;
+    
+    --trans-smooth: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --trans-fast: 0.3s ease;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    background-color: var(--color-warm-ivory);
+    color: var(--color-deep-rose);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    /* Subtle paper texture blend */
+    background-image: radial-gradient(var(--color-powder-pink) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+  }
+  
+  /* ==========================================================================
+     2. TYPOGRAPHY & ACCENTS
+     ========================================================================== */
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-deep-rose);
+  }
+  
+  .italic-heading {
+    font-style: italic;
+  }
+  
+  .article-text {
+    color: var(--color-deep-rose);
+    opacity: 0.9;
+    margin-bottom: var(--space-md);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  
+  .handwritten-text {
+    font-family: var(--font-handwriting);
+    color: var(--color-rose);
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .gold-ink {
+    color: var(--color-soft-gold);
+  }
+  
+  /* ==========================================================================
+     3. MAGAZINE COVER
+     ========================================================================== */
+  .magazine-cover {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    background: var(--color-warm-ivory);
+    z-index: 20;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+  }
+  
+  .magazine-cover.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .cover-wrapper {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: var(--space-xl) var(--space-md);
+    border: 1px solid rgba(199, 163, 90, 0.4);
+    background: linear-gradient(135deg, rgba(255,249,240,1) 0%, rgba(246,221,229,0.3) 100%);
+  }
+  
+  .issue-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-soft-gold);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .cover-title-group {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .magazine-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  
+  .times-symbol {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.6em;
+    color: var(--color-soft-gold);
+    vertical-align: middle;
+  }
+  
+  /* Modak Easter Egg Stamp */
+  .gold-stamp {
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-champagne);
+    border: 1px dashed var(--color-soft-gold);
+    color: var(--color-soft-gold);
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: rotate(15deg);
+    transition: transform var(--trans-fast), background var(--trans-fast);
+  }
+  
+  .gold-stamp:hover, .gold-stamp:focus {
+    transform: rotate(0deg) scale(1.1);
+    background: var(--color-soft-gold);
+    color: var(--color-warm-ivory);
+    outline: none;
+  }
+  
+  .hidden-note {
+    position: absolute;
+    top: -60px;
+    right: -180px;
+    width: 200px;
+    background: var(--color-warm-ivory);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-blush-pink);
+    box-shadow: 2px 4px 12px rgba(103, 70, 83, 0.1);
+    transform: rotate(-3deg);
+    z-index: 10;
+  }
+  
+  .hidden-note p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .cover-subtitle {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 0 auto var(--space-xl);
+    color: var(--color-rose);
+  }
+  
+  .cover-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .btn-editorial {
+    background: transparent;
+    border: 1px solid var(--color-soft-gold);
+    color: var(--color-deep-rose);
+    padding: 12px 32px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all var(--trans-fast);
+  }
+  
+  .btn-editorial:hover, .btn-editorial:focus {
+    background: var(--color-soft-gold);
+    color: var(--color-warm-ivory);
+    outline: none;
+  }
+  
+  .scroll-hint {
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--color-rose);
+  }
+  
+  /* ==========================================================================
+     4. EDITORIAL SPREADS (Main Content)
+     ========================================================================== */
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+  }
+  
+  .editorial-spread {
+    margin-bottom: 120px;
+    position: relative;
+  }
+  
+  .chapter-mark {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-soft-gold);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .centered-mark {
+    text-align: center;
+  }
+  
+  .editorial-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+  
+  /* Section: Origin */
+  .section-origin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+  
+  .spread-left {
+    flex: 1;
+    min-width: 280px;
+    border-top: 2px solid var(--color-soft-gold);
+    padding-top: var(--space-sm);
+  }
+  
+  .spread-right {
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  .drop-cap {
+    float: left;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 0.8;
+    padding-right: 12px;
+    color: var(--color-soft-gold);
+  }
+  
+  .decorative-line {
+    width: 60px;
+    height: 1px;
+    background: var(--color-rose);
+    margin-top: var(--space-lg);
+  }
+  
+  /* Section: Chaos */
+  .chaos-container {
+    background: var(--color-powder-pink);
+    padding: var(--space-lg);
+    border: 1px solid var(--color-blush-pink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    position: relative;
+  }
+  
+  .chaos-text-block {
+    flex: 1;
+    min-width: 280px;
+    z-index: 2;
+  }
+  
+  .btn-twist {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--color-deep-rose);
+    color: var(--color-deep-rose);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    padding-bottom: 2px;
+    margin-top: var(--space-sm);
+  }
+  
+  .twist-content {
+    margin-top: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-soft-gold);
+  }
+  
+  .chaos-visuals {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    min-height: 200px;
+  }
+  
+  .floating-annotation {
+    position: absolute;
+    background: var(--color-warm-ivory);
+    padding: 8px 16px;
+    box-shadow: 2px 4px 10px rgba(103, 70, 83, 0.08);
+  }
+  
+  /* Section: Trust */
+  .section-trust {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .trust-center-block {
+    max-width: 600px;
+    text-align: center;
+    background: var(--color-warm-ivory);
+    padding: var(--space-xl) var(--space-lg);
+    border-left: 1px solid var(--color-soft-gold);
+    border-right: 1px solid var(--color-soft-gold);
+  }
+  
+  .center-text {
+    text-align: justify;
+    text-align-last: center;
+  }
+  
+  /* Section: Mystery Gift */
+  .section-gift {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+  
+  .gift-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .gift-interaction {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* The CSS Gift Box */
+  .gift-box {
+    position: relative;
+    width: 200px;
+    height: 160px;
+    margin-top: 40px;
+    cursor: pointer;
+    perspective: 1000px;
+  }
+  
+  .gift-box:focus {
+    outline: 2px dashed var(--color-soft-gold);
+    outline-offset: 10px;
+  }
+  
+  .box-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: var(--color-blush-pink);
+    border: 1px solid var(--color-rose);
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05), 0 10px 20px rgba(103, 70, 83, 0.1);
+    z-index: 1;
+  }
+  
+  .box-lid {
+    position: absolute;
+    top: 10px;
+    left: -5%;
+    width: 110%;
+    height: 40px;
+    background: var(--color-powder-pink);
+    border: 1px solid var(--color-rose);
+    box-shadow: 0 4px 8px rgba(103, 70, 83, 0.1);
+    z-index: 3;
+    transition: transform 0.6s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    transform-origin: top center;
+  }
+  
+  .ribbon-vertical {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 100%;
+    background: var(--color-champagne);
+    border-left: 1px solid var(--color-soft-gold);
+    border-right: 1px solid var(--color-soft-gold);
+  }
+  
+  .box-lid .ribbon-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 24px;
+    background: var(--color-champagne);
+    border-top: 1px solid var(--color-soft-gold);
+    border-bottom: 1px solid var(--color-soft-gold);
+  }
+  
+  .ribbon-bow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: transparent;
+    border: 4px solid var(--color-champagne);
+    border-radius: 50px 50px 0 0;
+  }
+  
+  .box-label {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--color-warm-ivory);
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.1em;
+    color: var(--color-deep-rose);
+    border: 1px solid var(--color-soft-gold);
+  }
+  
+  .gift-note-inside {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    width: 80%;
+    background: var(--color-warm-ivory);
+    padding: 16px;
+    text-align: center;
+    border: 1px solid var(--color-soft-gold);
+    opacity: 0;
+    z-index: 2;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .gift-note-inside .handwritten-text {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .gift-instruction {
+    margin-top: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-rose);
+    font-style: italic;
+  }
+  
+  /* Gift Box Open State */
+  .gift-box.is-open .box-lid {
+    transform: translateY(-60px) rotateX(20deg) scale(1.05);
+    opacity: 0;
+  }
+  
+  .gift-box.is-open .gift-note-inside {
+    transform: translateX(-50%) translateY(-60px);
+    opacity: 1;
+  }
+  
+  /* Section: Appreciation */
+  .section-appreciation {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 100px;
+  }
+  
+  /* Section: Closing */
+  .section-closing {
+    text-align: center;
+    padding: var(--space-lg) 0;
+  }
+  
+  .closing-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gold-line-vertical {
+    width: 1px;
+    height: 40px;
+    background: var(--color-soft-gold);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .closing-note {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--color-soft-gold);
+    margin-bottom: var(--space-md);
+  }
+  
+  .closing-wink {
+    transform: rotate(-3deg);
+  }
+  
+  /* ==========================================================================
+     5. LOCK SCREEN INTERFACE (Preserved behavior, styled to theme)
+     ========================================================================== */
+  body.is-locked {
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  .lock-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-warm-ivory);
+    padding: var(--space-md);
+  }
+  
+  .lock-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(232, 184, 200, 0.9) 0%, rgba(103, 70, 83, 0.98) 100%);
+    backdrop-filter: blur(8px);
+    z-index: -1;
+  }
+  
+  .lock-panel {
+    background: var(--color-warm-ivory);
+    border: 1px solid var(--color-soft-gold);
+    padding: var(--space-lg) var(--space-md);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  .lock-panel .back-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--color-rose);
+    text-decoration: none;
+    margin-bottom: var(--space-lg);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+  
+  .lock-panel .back-link:hover {
+    color: var(--color-deep-rose);
+  }
+  
+  .lock-icon {
+    font-size: 0.85rem;
+    color: var(--color-soft-gold);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .lock-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-deep-rose);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .lock-question {
+    color: var(--color-deep-rose);
+    opacity: 0.8;
+    margin-bottom: var(--space-lg);
+    font-size: 1rem;
+  }
+  
+  .lock-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  
+  #lockInput {
+    background: transparent;
+    border: 1px solid var(--color-blush-pink);
+    color: var(--color-deep-rose);
+    padding: 14px;
+    text-align: center;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+  }
+  
+  #lockInput:focus {
+    outline: none;
+    border-color: var(--color-soft-gold);
+  }
+  
+  #lockSubmit {
+    background: var(--color-champagne);
+    color: var(--color-deep-rose);
+    border: 1px solid var(--color-soft-gold);
+    padding: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: inherit;
+  }
+  
+  #lockSubmit:hover, #lockSubmit:focus { 
+    background: var(--color-soft-gold); 
+    color: var(--color-warm-ivory);
+    outline: none;
+  }
+  
+  .lock-error {
+    color: #A94442;
+    font-size: 0.85rem;
+    margin-bottom: var(--space-sm);
+    min-height: 1.2rem;
+  }
+  
+  .lock-disclaimer {
+    font-size: 0.8rem;
+    color: var(--color-deep-rose);
+    opacity: 0.5;
+    margin-top: var(--space-lg);
+  }
+  
+  .lock-screen.unlocking {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+  
+  /* ==========================================================================
+     6. ANIMATIONS & REDUCED MOTION
+     ========================================================================== */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+  }
+  
+  .fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .fade-in-up {
+      opacity: 1;
+      transform: none;
+    }
+    
+    .magazine-cover {
+      transition: none;
+    }
+    
+    .gift-box.is-open .box-lid {
+      display: none;
+    }
+  }

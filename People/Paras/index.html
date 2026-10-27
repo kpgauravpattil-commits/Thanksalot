@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paras | Same Frequency</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- Ambient Snow Effect Container -->
+  <div id="snow-container" aria-hidden="true"></div>
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <!-- Paras's specific question config will inject here -->
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Section -->
+    <section class="section-hero fade-in-up">
+      <div class="hero-content">
+        <h1 class="hero-title">Different places.<br>Suspiciously similar brains.</h1>
+        <div class="graffiti-note note-hero">same brain, different location.</div>
+        
+        <div class="abstract-minds-graphic">
+          <!-- Continuous line SVG representing two minds connecting -->
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+            <path d="M 20,50 C 20,20 60,20 80,50 C 100,80 100,20 120,50 C 140,80 180,80 180,50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The Instagram Hello -->
+    <section class="section-hello fade-in-up">
+      <div class="hello-container">
+        <div class="message-bubble">
+          <span class="message-text">hello</span>
+        </div>
+        <div class="hello-story">
+          <p>We met on Instagram. A simple message. You were glad I replied. And somehow, that tiny interaction turned into a friendship where we just get each other's frequency.</p>
+          <div class="graffiti-note note-hello">how did we get here?</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Same-Brain Energy -->
+    <section class="section-same-brain fade-in-up">
+      <div class="split-layout">
+        <div class="split-text">
+          <h2>One Frequency</h2>
+          <p>It’s a weird, rare feeling to meet someone who just thinks the way you do. We can talk about almost anything, vibe naturally, and somehow skip the part where we have to explain ourselves.</p>
+        </div>
+        <div class="split-visual">
+          <div class="graffiti-note note-samebrain">SAME BRAIN? NO WAY.</div>
+          <!-- Mirrored abstract shape -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="svg-fill">
+            <circle cx="35" cy="50" r="15" fill="currentColor" opacity="0.6"/>
+            <circle cx="65" cy="50" r="15" fill="currentColor" opacity="0.6"/>
+            <path d="M 35,50 Q 50,30 65,50 Q 50,70 35,50" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. The Distance Between Us -->
+    <section class="section-distance fade-in-up">
+      <div class="distance-graphic">
+        <span class="dot dot-left"></span>
+        <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+          <path d="M 10,10 Q 100,20 190,10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+        </svg>
+        <span class="dot dot-right"></span>
+      </div>
+      <p class="distance-text">Distance is just a detail. It doesn't define the connection.</p>
+    </section>
+
+    <!-- 5. Conversations & Gaming -->
+    <section class="section-gaming fade-in-up">
+      <div class="gaming-card">
+        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" class="svg-stroke scribble-icon">
+          <!-- Abstract controller scribble -->
+          <path d="M 20,30 C 10,30 10,10 30,10 C 50,10 50,10 70,10 C 90,10 90,30 80,30 C 90,50 70,50 70,30 L 30,30 C 30,50 10,50 20,30 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="30" cy="20" r="3" fill="currentColor" stroke="none" />
+          <circle cx="70" cy="20" r="3" fill="currentColor" stroke="none" />
+        </svg>
+        <p>Deep talks, random gaming, and helping each other out. It's never really about what we're doing or playing—it's just about the company.</p>
+      </div>
+    </section>
+
+    <!-- 6. The Meaningful Part -->
+    <section class="section-appreciation fade-in-up">
+      <div class="appreciation-content">
+        <p>Funny how a random hello can turn into someone you genuinely click with. We might be far apart, but talking to you has never felt like talking to a stranger. I'm glad you messaged me, and I'm glad I replied.</p>
+      </div>
+    </section>
+
+    <!-- 9. Closing Section -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-content">
+        <p class="closing-text">Still not sure how we think so alike. Not complaining, though.</p>
+        <div class="zodiac-signatures">
+          <span class="zodiac-glyph">♏</span>
+          <span class="zodiac-divider">×</span>
+          <span class="zodiac-glyph">♍</span>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadya | Somewhere Between Two Skies</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- Twilight Atmosphere Background -->
+  <div class="twilight-atmosphere">
+    <div class="glow-orb moon-glow"></div>
+    <div class="glow-orb ambient-glow"></div>
+    <div class="stars-layer"></div>
+  </div>
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Scene -->
+    <section class="section-hero">
+      <div class="hero-content">
+        <div class="handwritten-note note-top fade-in-stagger-1">for Aadya</div>
+        <h1 class="hero-title serif-text fade-in-stagger-2">Somewhere Between<br>Two Skies.</h1>
+        <h2 class="hero-subtitle fade-in-stagger-3">For the sister I found a little differently.</h2>
+        
+        <p class="hero-intro fade-in-stagger-4">
+          Sometimes, distance is just a detail. Two people can be in entirely different places, living different lives, and still find a familiar kind of comfort in each other without needing a grand explanation.
+        </p>
+        
+        <div class="scroll-indicator fade-in-stagger-5">
+          <div class="scroll-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Section A: The Beginning -->
+    <section class="section-quick fade-in-up">
+      <div class="editorial-layout">
+        <h2 class="serif-text section-title">It happened rather quickly, didn't it?</h2>
+        <p class="large-text">It’s funny how some people don’t need years of knowing you before they start feeling familiar.</p>
+        <p class="body-text">We met online, started talking, and somehow, you sent me a voice note! That little moment became the start of our story. No overthinking, no awkward phases—just a connection that felt right immediately.</p>
+      </div>
+    </section>
+
+    <!-- 3. Section B: Voice Notes -->
+    <section class="section-audio fade-in-up">
+      <div class="waveform-container" id="waveformContainer">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+      </div>
+      <div class="audio-text-wrapper">
+        <div class="handwritten-note note-audio">always listening</div>
+        <p class="body-text">One of my favourite things about how we communicate is your voice notes. I genuinely just enjoy listening to them. There's a specific kind of peace in hearing a voice travel across the distance to tell you about their day.</p>
+      </div>
+    </section>
+
+    <!-- 4. Section C: Spotify Blend -->
+    <section class="section-blend fade-in-up">
+      <div class="blend-visual">
+        <div class="blend-ring ring-1"></div>
+        <div class="blend-ring ring-2"></div>
+        <div class="blend-number serif-text">92%</div>
+      </div>
+      <div class="blend-content">
+        <h3 class="serif-text section-title-small">On the exact same wavelength.</h3>
+        <p class="body-text">The moment our Spotify Blend hit 85-90%, it made perfect sense. It’s a small detail, but it just proved what I already knew: we just get each other. Shii happens, Some were near same!</p>
+      </div>
+    </section>
+
+    <!-- 5. Section E: Distance -->
+    <section class="section-distance fade-in-up">
+      <div class="distance-visual">
+        <div class="glowing-point point-a"></div>
+        <div class="connecting-line"></div>
+        <div class="glowing-point point-b"></div>
+      </div>
+      <div class="distance-text">
+        <h2 class="serif-text">Different places.<br>Still my sister.</h2>
+        <p class="body-text">We might be far apart, but I'm just incredibly glad we found each other. I love that this friendship became Bro-sishood in its own quiet way, proving that closeness isn't just about sharing a physical space.</p>
+      </div>
+    </section>
+
+    <!-- 6. Section D & F: Scorpios & Birthdays -->
+    <section class="section-birthdays fade-in-up">
+      <div class="constellation-graphic">
+        <svg viewBox="0 0 100 60" class="star-lines" fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="20" cy="30" r="2" fill="currentColor"/>
+          <circle cx="50" cy="15" r="2" fill="currentColor"/>
+          <circle cx="80" cy="40" r="2" fill="currentColor"/>
+          <path d="M 20,30 L 50,15 L 80,40" stroke-dasharray="2, 4"/>
+        </svg>
+      </div>
+      
+      <div class="dates-visual">
+        <div class="date-block">
+          <span class="date-num serif-text">27</span>
+          <span class="date-month">OCT</span>
+        </div>
+        <div class="date-arrow">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="date-block highlight-date">
+          <span class="date-num serif-text">28</span>
+          <span class="date-month">OCT</span>
+        </div>
+      </div>
+      
+      <p class="body-text text-center">Two Scorpios. One day apart. Of course.</p>
+    </section>
+
+    <!-- 7. The Main Letter -->
+    <section class="section-letter fade-in-up">
+      <!-- Hidden tiny star interaction -->
+      <div class="secret-trigger" id="secretTrigger" tabindex="0" role="button" aria-label="Reveal a hidden note">✦</div>
+      <div class="hidden-message" id="hiddenMessage">
+        <button class="close-hidden" id="closeHidden">&times;</button>
+        <p class="handwritten-text">P.S. I'm just really happy our paths crossed. Having you as my sister is one of the best things to happen to me.</p>
+      </div>
+
+      <div class="letter-surface">
+        <div class="letter-glow"></div>
+        <p class="letter-greeting serif-text">To the sister I found online,</p>
+        
+        <p>Today is October 27th—my birthday. And as I celebrate today, I realised I wanted to make this page to thank the people who genuinely make my life better. But the funny thing about our timeline is that in just a few short hours, the clock strikes midnight and it becomes October 28th. Your birthday.</p>
+        
+        <p>So I wanted this space to be a thank you for today, and a wish for tomorrow.</p>
+        
+        <p>I still think about how quickly we clicked. You calling me your bro was such a small thing, but it meant everything. From enjoying your voice notes to finding out our Spotify Blend is a massive 80-90%, every little detail just cemented the fact that we were supposed to find each other.</p>
+        
+        <p>I know we are long-distance, but distance doesn't make this any less real to me. You never have to be perfect or constantly available for me to appreciate you; I just appreciate you for being exactly who you are. The fact that we are two Scorpios with birthdays right next to each other is just the perfect chaotic cherry on top.</p>
+        
+        <p>Thank you for being my sister. As your day begins in just a little while, I hope this next year brings you so many good experiences, absolute peace, happiness, and people who appreciate you as much as I do.</p>
+        
+        <p class="letter-signoff">Yours truly,</p>
+        <p class="letter-signature handwritten-text">Gaurav</p>
+      </div>
+    </section>
+
+    <!-- 8. Final Scene -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-glow"></div>
+      <h2 class="final-heading serif-text">Tomorrow is yours.</h2>
+      <h1 class="birthday-heading serif-text">Happy Birthday, Aadya.</h1>
+      <p class="closing-note">I'm so glad you're my sister.</p>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

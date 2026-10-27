@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tori | Same Brain, Different Screen</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">System Locked</div>
+      <h1 class="lock-title">Security Check</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can bypass this.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Scene - Split Panels -->
+    <section class="section-hero">
+      <div class="split-container" id="twinContainer">
+        
+        <div class="split-panel panel-left fade-in-stagger-1">
+          <div class="panel-label">Gaurav.exe</div>
+          <div class="panel-content">
+            <h1 class="hero-title">Same<br>Brain.<br>Scorpio</h1>
+          </div>
+          <div class="doodle doodle-left">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 50 Q 50 20 80 50"/></svg>
+          </div>
+        </div>
+
+        <div class="split-panel panel-right fade-in-stagger-2">
+          <div class="panel-label">Tori.exe</div>
+          <div class="panel-content">
+            <h1 class="hero-title">Different<br>Screen.<br>Libra</h1>
+          </div>
+          <div class="doodle doodle-right">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 50 Q 50 80 80 50"/></svg>
+          </div>
+        </div>
+
+        <div class="sync-button-wrapper fade-in-stagger-3">
+          <button id="syncBrainBtn" class="sync-btn" aria-label="Sync brain cells">
+            <span class="btn-text">Sync Connection</span>
+            <div class="handwritten-note note-sync">click to align</div>
+          </button>
+        </div>
+      </div>
+      
+      <p class="hero-intro fade-in-stagger-4">
+        For Tori—my long-distance twin and the person who somehow operates on the exact same chaotic wavelength as me.
+      </p>
+    </section>
+
+    <!-- 2. The Paras Comparison -->
+    <section class="section-paras fade-in-up">
+      <div class="comparison-box">
+        <div class="handwritten-note note-paras">wait, it makes sense</div>
+        <h2 class="display-text">Different character model.<br>Familiar operating system.</h2>
+        <p class="body-text">
+          I've said it before, but you are basically Paras, just the female version. It’s the exact same vibe, the same ridiculous energy, and the same kind of friendship—just repackaged and shipped to a different screen.
+        </p>
+        <div class="scribble-line">
+          <svg viewBox="0 0 200 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M 0 10 Q 50 -5 100 10 T 200 10"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Libra Detail -->
+    <section class="section-libra fade-in-up">
+      <div class="libra-graphic">
+        <div class="scale-arm"></div>
+        <div class="scale-bowl bowl-left"></div>
+        <div class="scale-bowl bowl-right"></div>
+        <div class="fulcrum"></div>
+      </div>
+      <div class="libra-text">
+        <h3 class="display-text">Libra balance meets twin-level chaos.</h3>
+        <p class="body-text">
+          You're a Libra, so technically you're supposed to represent perfect balance. But realistically? It's just a perfectly balanced kind of chaos. Two people can be entirely different, live completely separate lives, and yet somehow perfectly mirror each other's thought process.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Long Distance Wavelength -->
+    <section class="section-distance fade-in-up">
+      <div class="distance-visual">
+        <div class="point point-me">
+          <span class="point-label">Here</span>
+        </div>
+        <div class="wavelength-line" id="wavelengthLine">
+          <!-- SVG injected via CSS or simple border animation -->
+        </div>
+        <div class="point point-tori">
+          <span class="point-label">There</span>
+        </div>
+      </div>
+      <div class="distance-content">
+        <p class="body-text">
+          We’re long-distance friends, but distance has never really been an issue. It’s strange how someone you aren't physically hanging out with can still feel so incredibly familiar. 
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. The Main Appreciation Letter -->
+    <section class="section-letter fade-in-up">
+      <div class="letter-canvas">
+        <div class="paper-grain"></div>
+        
+        <div class="letter-header">
+          <span class="header-stamp">Oct 27 Project</span>
+        </div>
+
+        <p>Dear Tori (aka Victoria),</p>
+        
+        <p>Today is October 27th—my birthday. But instead of just making today about myself, I built this website because I wanted to take the time to properly thank the people who actually make my life better. And there was absolutely no way I was going to build this project without making a space for my long-distance twin.</p>
+        
+        <p>I’m just genuinely glad we connected. The whole “same brain, different screen” thing is a joke, but it’s also completely true. Having someone who operates on a similar wavelength someone who just gets the vibe without me having to explain it is rare. I don't need a massive list of crazy stories to explain why our friendship matters to me. The simple fact that I can talk to you and feel completely understood is more than enough.</p>
+        
+        <p>You’re an amazing friend. As I celebrate my birthday today, my biggest wish for you is that you get the same energy back that you put out into the world. I hope good things come your way, and I hope you always have people around you who appreciate you for exactly who you are, because you deserve it.</p>
+        
+        <p>Thank you for being part of my life, twin. I'm lucky to know you.</p>
+
+        <p class="letter-signoff">Yours truly,</p>
+        <p class="letter-signature handwritten-text">Gaurav</p>
+
+        <!-- Hidden Detail Trigger -->
+        <button class="secret-scribble" id="secretTrigger" aria-label="Reveal hidden note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l2 2 4-4"></path></svg>
+        </button>
+        
+        <div class="hidden-note-box" id="hiddenNote">
+          <button class="close-hidden" id="closeHidden">&times;</button>
+          <p class="handwritten-text">P.S. Out of all the people on the internet, I'm genuinely glad I ended up finding the one who shares my brain cells.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Closing Scene -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-split">
+        <h2 class="closing-title display-text">Different screens.</h2>
+        <h2 class="closing-title display-text accent-color">Same questionable brain cells.</h2>
+      </div>
+      <p class="closing-message">
+        Thank you for being in my life, Tori. Making this for you was the best way I could think of to celebrate today.
+      </p>
+      <div class="closing-doodle">
+        <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <path d="M 10 10 L 40 10 M 60 10 L 90 10" />
+          <circle cx="50" cy="10" r="4" fill="currentColor"/>
+        </svg>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi | Cozy Trucking Nights</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- Ambient Snow Effect Container -->
+  <div id="snow-container" aria-hidden="true"></div>
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Section: ETS2 after dark -->
+    <section class="section-hero fade-in-up">
+      <div class="windshield-frame">
+        <div class="ambient-glow cyan-glow glow-left"></div>
+        <div class="ambient-glow violet-glow glow-right"></div>
+        
+        <div class="hero-content">
+          <h1 class="hero-title">Long roads.<br>Questionable decisions.<br>Legendary company.</h1>
+          <div class="graffiti-note note-hero">one more delivery.</div>
+          
+          <div class="dashboard-graphic">
+            <!-- Simple winding road fading into the horizon -->
+            <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" class="svg-stroke hero-road">
+              <path d="M 80,10 C 90,40 40,70 10,100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M 120,10 C 110,40 160,70 190,100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M 100,15 L 100,25 M 95,45 L 90,55 M 80,75 L 70,85" fill="none" stroke="var(--color-cream)" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            </svg>
+            <div class="dash-indicator cyan-indicator"></div>
+            <div class="dash-indicator violet-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Our friendship: the passenger seat is occupied -->
+    <section class="section-friendship fade-in-up">
+      <div class="split-layout">
+        <div class="split-text">
+          <h2>The Passenger Seat</h2>
+          <p>Whether we're cruising down a digital highway, racing until things get chaotic, or just hanging out, you’ve always been the kind of co-driver who makes the journey worth it. It’s never just about the game; it’s about having a friend who makes every trip more entertaining.</p>
+        </div>
+        <div class="split-visual">
+          <div class="graffiti-note note-friendship">best co-driver.</div>
+          <!-- A decorative route with little stops -->
+          <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" class="svg-stroke route-line">
+            <path d="M 50,10 Q 80,40 50,70 T 50,140" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+            <circle cx="50" cy="10" r="4" fill="var(--color-rose)" stroke="none" />
+            <circle cx="50" cy="70" r="4" fill="var(--color-cyan)" stroke="none" />
+            <circle cx="50" cy="140" r="4" fill="var(--color-violet)" stroke="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ETS2: miles of absolute nonsense -->
+    <section class="section-ets2 fade-in-up">
+      <div class="ets2-container">
+        <div class="ambient-glow cyan-glow glow-center"></div>
+        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" class="svg-fill truck-silhouette">
+          <path d="M 10,40 L 10,20 L 30,20 L 40,30 L 60,30 L 60,40 Z M 65,40 L 65,15 L 110,15 L 110,40 Z" fill="currentColor" opacity="0.8"/>
+          <circle cx="20" cy="40" r="6" fill="var(--color-midnight)" />
+          <circle cx="50" cy="40" r="6" fill="var(--color-midnight)" />
+          <circle cx="80" cy="40" r="6" fill="var(--color-midnight)" />
+          <circle cx="100" cy="40" r="6" fill="var(--color-midnight)" />
+        </svg>
+        <h3>Miles of Absolute Nonsense</h3>
+        <p>Late nights in Euro Truck Simulator 2 aren't really about the cargo or the destination. They're about the conversations, the weird detours, and the comfortable silence of just driving. It's the perfect backdrop for our chaotic gaming friendship.</p>
+        <div class="graffiti-note note-ets2">where are we even going?</div>
+      </div>
+    </section>
+
+    <!-- 4. Racing and chaos -->
+    <section class="section-racing fade-in-up">
+      <div class="racing-graphic">
+        <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" class="svg-stroke tire-track">
+          <path d="M 0,20 Q 50,0 100,20 T 200,20" fill="none" stroke="currentColor" stroke-width="6" opacity="0.2"/>
+          <path d="M 0,20 Q 50,0 100,20 T 200,20" fill="none" stroke="var(--color-rose)" stroke-width="2" stroke-dasharray="10 5" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="racing-content">
+        <h2>Pure Chaos</h2>
+        <p>Then there's the racing. Taking things a little too fast, cutting corners, and bringing completely different energy to the track. It’s dynamic, unpredictable, and always hilarious.</p>
+      </div>
+    </section>
+
+    <!-- 5. The FH6 story: the most meaningful stop -->
+    <section class="section-fh6 fade-in-up">
+      <div class="fh6-scene">
+        <div class="ambient-glow warm-glow glow-window"></div>
+        <div class="laptop-illustration">
+          <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+            <rect x="10" y="10" width="80" height="45" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M 5,60 L 95,60 L 90,55 L 10,55 Z" fill="currentColor" stroke="none" opacity="0.7"/>
+            <circle cx="50" cy="32" r="6" fill="var(--color-warm-paper)" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="fh6-text">
+          <p>You kept Forza Horizon 6—a massive 160 GB game—installed on your laptop for three entire months, just so I could play it for 30 minutes when I finally had the chance. My PC couldn't run it, but you made sure I didn't miss out. That quiet, considerate gesture means more to me than I can properly explain. Thank you for making room for me.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Secrets, trust, and being bros -->
+    <section class="section-secrets fade-in-up">
+      <div class="rest-stop-card">
+        <div class="ambient-glow violet-glow glow-note"></div>
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="svg-stroke rest-icon">
+          <path d="M 10,40 L 10,10 L 40,10 L 40,40" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M 25,25 L 25,40" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="25" cy="18" r="4" fill="currentColor" stroke="none"/>
+        </svg>
+        <p>It's rare to find someone you can share the ridiculous gaming moments with, but also trust with the real stuff. Thanks for being a bro I can actually talk to.</p>
+        <div class="graffiti-note note-secrets">safe zone.</div>
+      </div>
+    </section>
+
+    <!-- 7. Closing -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-content">
+        <p class="closing-text">Same crew. Different routes. Probably still causing trouble.</p>
+        <div class="road-end-graphic">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+            <path d="M 10,10 L 90,10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+            <circle cx="95" cy="10" r="2" fill="var(--color-rose)" stroke="none" opacity="0.8"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

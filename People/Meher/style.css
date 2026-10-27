@@ -1,0 +1,668 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES - SAGITTARIUS WARMTH
+   ========================================================================== */
+:root {
+  /* Carefully balanced matte palette */
+  --color-cream: #F3E7D3;       /* Warm parchment cream */
+  --color-amber: #D99843;       /* Sunset amber */
+  --color-terracotta: #B9634F;  /* Muted terracotta */
+  --color-burgundy: #582F3D;    /* Deep burgundy */
+  --color-rose: #C99A9B;        /* Dusty rose */
+  --color-brown: #392B2B;       /* Dark warm brown for readable text */
+  
+  --font-body: 'DM Sans', sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+  --trans-smooth: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  /* Subtle paper grain texture overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & HANDWRITTEN ACCENTS
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-burgundy);
+}
+
+.serif-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+p {
+  color: var(--color-brown);
+  opacity: 0.9;
+}
+
+.handwritten-text, .handwritten-note, .handwritten-title, .handwritten-closing {
+  font-family: var(--font-handwriting);
+  color: var(--color-terracotta);
+}
+
+.handwritten-note {
+  font-size: 1.6rem;
+  position: absolute;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. LAYOUT & SECTIONS
+   ========================================================================== */
+.page-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 10;
+}
+
+section {
+  margin-bottom: 150px;
+  position: relative;
+}
+
+/* Hero Section */
+.section-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: 10vh;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+
+.note-top {
+  top: -20px;
+  left: 5px;
+  transform: rotate(-4deg);
+  color: var(--color-amber);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--color-burgundy);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-intro {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.scroll-indicator {
+  margin-top: var(--space-lg);
+  color: var(--color-amber);
+  animation: gentle-bounce 2s infinite ease-in-out;
+}
+
+/* Roles: Editorial Layout */
+.section-roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.editorial-block {
+  max-width: 450px;
+  position: relative;
+}
+
+.editorial-block h3 {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-burgundy);
+}
+
+.role-listener {
+  margin-left: 0;
+}
+
+.role-sounding-board {
+  margin-left: auto;
+}
+
+.paper-texture-box {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(217, 152, 67, 0.3);
+  padding: var(--space-lg);
+  box-shadow: 4px 4px 15px rgba(88, 47, 61, 0.05);
+  position: relative;
+}
+
+.note-board {
+  bottom: -15px;
+  right: -10px;
+  transform: rotate(5deg);
+  font-size: 1.4rem;
+}
+
+.role-honest {
+  margin-left: 10%;
+  max-width: 500px;
+}
+
+.role-honest .large-body {
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
+}
+
+.role-honest .small-caption {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.role-keeper {
+  margin-left: auto;
+  margin-right: 15%;
+  text-align: center;
+  max-width: 350px;
+}
+
+.envelope-motif {
+  color: var(--color-rose);
+  margin-bottom: var(--space-sm);
+  opacity: 0.8;
+}
+
+/* Quiet Section */
+.section-quiet {
+  background-color: var(--color-rose);
+  color: var(--color-cream);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: 2px;
+  text-align: center;
+  margin: 0 calc(-50vw + 50%);
+  width: 100vw;
+  box-shadow: inset 0 0 40px rgba(88, 47, 61, 0.1);
+}
+
+.quiet-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quiet-content h2 {
+  color: var(--color-burgundy);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-md);
+  line-height: 1.3;
+}
+
+.quiet-content p {
+  color: var(--color-burgundy);
+  font-size: 1.2rem;
+}
+
+/* Sagittarius Detail */
+.section-sagittarius {
+  text-align: center;
+  max-width: 500px;
+  margin: 150px auto;
+}
+
+.sagittarius-graphic {
+  color: var(--color-amber);
+  width: 60px;
+  margin: 0 auto var(--space-md);
+  opacity: 0.8;
+}
+
+.section-sagittarius h3 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Department Interlude */
+.section-department {
+  display: flex;
+  justify-content: center;
+}
+
+.clipboard-box {
+  border: 2px dashed rgba(185, 99, 79, 0.3);
+  padding: var(--space-lg);
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.handwritten-title {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  color: var(--color-burgundy);
+  transform: rotate(-2deg);
+}
+
+.department-sub {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-brown);
+  opacity: 0.6;
+  margin-bottom: var(--space-lg);
+}
+
+.department-list {
+  list-style: none;
+  margin-bottom: var(--space-lg);
+}
+
+.department-list li {
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.department-list span {
+  font-family: var(--font-serif);
+  color: var(--color-amber);
+  font-size: 0.9rem;
+}
+
+.department-footer {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* Personal Letter */
+.section-letter {
+  background-color: var(--color-terracotta);
+  padding: var(--space-lg);
+  margin: 0 calc(-10vw) 150px;
+  position: relative;
+}
+
+.letter-background {
+  background-color: var(--color-cream);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: 10px 10px 30px rgba(57, 43, 43, 0.15);
+  position: relative;
+}
+
+.letter-paper {
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.letter-margin-line {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(201, 154, 155, 0.4);
+}
+
+.letter-paper p {
+  margin-bottom: var(--space-md);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-brown);
+}
+
+.letter-signoff {
+  margin-top: var(--space-xl);
+  margin-bottom: 0 !important;
+}
+
+.letter-signature {
+  font-size: 2.5rem;
+  color: var(--color-burgundy);
+  margin-top: -10px;
+}
+
+/* Interactive Note */
+.secret-star-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--color-amber);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.secret-star-btn:hover {
+  opacity: 1;
+  transform: scale(1.2) rotate(15deg);
+}
+
+.hidden-note {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-amber);
+  padding: 15px 20px;
+  box-shadow: 2px 4px 12px rgba(88, 47, 61, 0.1);
+  width: 250px;
+  transform: translateY(10px) rotate(2deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+}
+
+.hidden-note.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) rotate(2deg);
+}
+
+.hidden-note p {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-burgundy);
+}
+
+.close-note {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-terracotta);
+  opacity: 0.6;
+}
+.close-note:hover { opacity: 1; }
+
+/* Closing Scene */
+.section-closing {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.handwritten-closing {
+  font-size: 4rem;
+  color: var(--color-burgundy);
+  margin-bottom: var(--space-md);
+  transform: rotate(-3deg);
+}
+
+.closing-message {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-lg);
+}
+
+.closing-stars {
+  color: var(--color-amber);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.star-large { font-size: 1.5rem; }
+.star-small { font-size: 0.9rem; opacity: 0.7; }
+
+.closing-humour {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   4. LOCK SCREEN INTERFACE (Mapped to Sagittarius Palette)
+   ========================================================================== */
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-brown);
+  padding: var(--space-md);
+}
+
+.lock-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(88, 47, 61, 0.95) 0%, rgba(57, 43, 43, 0.98) 100%);
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
+.lock-panel {
+  background: var(--color-cream);
+  border-radius: 4px; /* Harder corners for editorial feel */
+  padding: var(--space-lg) var(--space-md);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(217, 152, 67, 0.2);
+}
+
+.lock-panel .back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-terracotta);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.lock-panel .back-link:hover {
+  color: var(--color-burgundy);
+}
+
+.lock-icon {
+  font-size: 0.9rem;
+  color: var(--color-burgundy);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.lock-title {
+  font-size: 2rem;
+  color: var(--color-burgundy);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-serif);
+}
+
+.lock-question {
+  color: var(--color-brown);
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+  font-size: 1.05rem;
+}
+
+.lock-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#lockInput {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--color-rose);
+  color: var(--color-brown);
+  padding: 14px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  font-family: var(--font-body);
+}
+
+#lockInput:focus {
+  outline: none;
+  border-color: var(--color-burgundy);
+  background: #fff;
+}
+
+#lockSubmit {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+  border: none;
+  padding: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+}
+
+#lockSubmit:hover { 
+  background: var(--color-burgundy); 
+}
+
+.lock-error {
+  color: var(--color-burgundy);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+  min-height: 1.2rem;
+  font-weight: 500;
+}
+
+.lock-disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-brown);
+  opacity: 0.5;
+  margin-top: var(--space-lg);
+}
+
+.lock-screen.unlocking {
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   5. ANIMATIONS & REDUCED MOTION
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered entrance for Hero */
+.fade-in-stagger-1 { animation: fadeIn 1s ease forwards 0.2s; opacity: 0; }
+.fade-in-stagger-2 { animation: fadeIn 1s ease forwards 0.5s; opacity: 0; }
+.fade-in-stagger-3 { animation: fadeIn 1s ease forwards 0.8s; opacity: 0; }
+.fade-in-stagger-4 { animation: fadeIn 1s ease forwards 1.1s; opacity: 0; }
+.fade-in-stagger-5 { animation: fadeIn 1s ease forwards 1.4s; opacity: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-roles {
+    grid-template-columns: 1fr;
+  }
+  .role-listener, .role-sounding-board, .role-honest, .role-keeper {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+  .section-letter {
+    margin: 0 calc(-5vw) 100px;
+  }
+}

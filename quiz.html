@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSESSMENT - little things ♡</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="game-bg"></div>
+    <div class="game-shadow" id="flashlight"></div>
+    <div class="film-grain"></div>
+    <div class="scanlines"></div>
+    <div class="blood-overlay" id="blood-overlay"></div>
+
+    <!-- RE ENVIRONMENTAL HUD ELEMENTS -->
+    <div class="re-environment">
+        <div class="env-status" id="health-status">
+            <div class="status-label">CONDITION</div>
+            <div class="status-box fine" id="health-box">
+                <span id="health-text">FINE</span>
+                <svg class="ecg-line" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <polyline points="0,10 20,10 25,5 30,18 35,2 40,15 45,10 100,10" id="ecg-path" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="env-inventory" id="inventory-grid">
+            <div class="inv-slot"></div><div class="inv-slot"></div><div class="inv-slot"></div>
+            <div class="inv-slot"></div><div class="inv-slot"></div><div class="inv-slot"></div>
+        </div>
+
+        <div class="env-file-tab">
+            <span>FILE NO. 047</span>
+            <div class="barcode"></div>
+        </div>
+
+        <div class="graffiti" id="graffiti-mark"></div>
+        
+        <div class="env-joke-btn" id="joke-trigger"><span>⭘</span> SYSTEM OVERRIDE</div>
+    </div>
+
+    <!-- THE QTE MINIGAME (True Panic Mode) -->
+    <div id="qte-overlay" class="qte-overlay hidden">
+        <div id="qte-ui" class="qte-ui-container">
+            <div class="qte-warning">BIOHAZARD LOCKDOWN INITIATED</div>
+            <div class="qte-timer">SYSTEM PURGE IN: <span id="qte-time">3.0</span>s</div>
+            <button id="qte-mash-btn" class="qte-mash-btn">MANUAL OVERRIDE</button>
+            <div class="qte-progress-bar"><div id="qte-progress-fill" class="qte-progress-fill"></div></div>
+        </div>
+
+        <div id="qte-success" class="qte-success hidden">
+            <h1 class="success-text">OVERRIDE SUCCESSFUL</h1>
+            <p class="success-sub">SYSTEM PURGE HALTED</p>
+        </div>
+    </div>
+
+    <!-- NEW: CLASSIC RE KEYPAD TERMINAL -->
+    <div id="keypad-overlay" class="keypad-overlay hidden">
+        <div class="keypad-container">
+            <div class="keypad-header">TERMINAL LOCKED</div>
+            <div class="keypad-display" id="keypad-display">----</div>
+            <div class="keypad-grid">
+                <button class="key-btn">7</button><button class="key-btn">8</button><button class="key-btn">9</button>
+                <button class="key-btn">4</button><button class="key-btn">5</button><button class="key-btn">6</button>
+                <button class="key-btn">1</button><button class="key-btn">2</button><button class="key-btn">3</button>
+                <button class="key-btn action-key" id="key-clr">CLR</button>
+                <button class="key-btn">0</button>
+                <button class="key-btn action-key" id="key-ent">ENT</button>
+            </div>
+            <button id="keypad-close" class="keypad-close">ABORT</button>
+        </div>
+    </div>
+
+    <!-- DEATH SCREEN -->
+    <div id="death-screen" class="death-screen hidden">
+        <h1 class="death-text">YOU ARE DEAD</h1>
+    </div>
+
+    <!-- MAIN QUIZ WRAPPER -->
+    <main class="quiz-wrapper">
+        <section id="intro-screen" class="screen active">
+            <h1 class="main-title">ASSESSMENT</h1>
+            <p class="sub-text">Seven questions. Four options each.<br>Let's see what you've picked up.</p>
+            <div class="options-stack mt-large">
+                <button id="btn-start" class="action-btn">Start Evaluation</button>
+                <a href="index.html" class="action-btn">Return to Main Menu</a>
+            </div>
+        </section>
+
+        <section id="quiz-screen" class="screen">
+            <div class="progress-text">QUESTION <span id="current-q-num">1</span> / 7</div>
+            <h2 id="question-text" class="question-text"></h2>
+            <div id="options-container" class="options-stack"></div>
+            <div class="options-stack mt-small">
+                <button id="btn-confirm" class="action-btn hidden" disabled>Confirm</button>
+            </div>
+            <div id="reaction-box" class="reaction-box hidden">
+                <p id="reaction-text"></p>
+                <button id="btn-next" class="action-btn mt-small">Proceed</button>
+            </div>
+        </section>
+
+        <section id="results-screen" class="screen">
+            <h1 class="main-title">MISSION LOG</h1>
+            <div class="results-container">
+                <p class="result-label">FINAL SCORE</p>
+                <p class="final-score" id="final-score">0/7</p>
+                <p class="result-label mt-small">RANK ASSIGNED</p>
+                <h2 class="rank-title" id="rank-title">RANK</h2>
+                <p class="rank-desc" id="rank-desc">Description</p>
+            </div>
+            <div class="options-stack mt-large">
+                <button id="btn-restart" class="action-btn">Retry Assessment</button>
+                <a href="index.html" class="action-btn">Return to Main Menu</a>
+            </div>
+        </section>
+
+        <!-- RE Dialogue Box -->
+        <div class="re-dialogue-box hidden" id="dialogue-box">
+            <p id="dialogue-text"></p>
+            <span class="dialogue-prompt">▼</span>
+        </div>
+    </main>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

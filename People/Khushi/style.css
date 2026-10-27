@@ -1,0 +1,715 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES - "HANDMADE SCRAPBOOK"
+   ========================================================================== */
+:root {
+  /* Warm Handmade Palette */
+  --color-yellow: #F0CE72;     /* Butter yellow */
+  --color-cream: #FFF4DF;      /* Warm cream */
+  --color-coral: #D98276;      /* Muted coral */
+  --color-teal: #729E9B;       /* Dusty teal */
+  --color-plum: #66516D;       /* Soft plum */
+  --color-cocoa: #43363A;      /* Dark cocoa (Text) */
+  
+  --font-body: 'DM Sans', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+  --trans-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Imperfect border radii for a hand-drawn paper feel */
+  --paper-radius-1: 2px 255px 3px 25px / 255px 5px 225px 3px;
+  --paper-radius-2: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-cream);
+  color: var(--color-cocoa);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  /* Soft noise texture for paper feel */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+body {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & HANDWRITTEN ACCENTS
+   ========================================================================== */
+h1, h2, h3 {
+  color: var(--color-cocoa);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+p {
+  color: var(--color-cocoa);
+  opacity: 0.9;
+}
+
+.handwritten-title {
+  font-family: var(--font-handwriting);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.handwritten-text, .handwritten-note {
+  font-family: var(--font-handwriting);
+  color: var(--color-plum);
+}
+
+.handwritten-note {
+  font-size: 1.6rem;
+  position: absolute;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.text-plum { color: var(--color-plum); }
+.text-coral { color: var(--color-coral); }
+
+/* ==========================================================================
+   3. LAYOUT & SECTIONS
+   ========================================================================== */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 10;
+}
+
+section {
+  margin-bottom: 12vh;
+  position: relative;
+}
+
+/* Tape Effect */
+.tape {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), inset 0 0 5px rgba(255,255,255,0.6);
+  z-index: 5;
+  backdrop-filter: blur(2px);
+}
+
+/* ==========================================================================
+   4. HERO - "Okay, birthday twin..."
+   ========================================================================== */
+.section-hero {
+  padding-top: 5vh;
+}
+
+.hero-scrap-box {
+  background: #fff;
+  border: 2px solid var(--color-cocoa);
+  border-radius: var(--paper-radius-1);
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: 6px 6px 0 rgba(114, 158, 155, 0.3);
+  transform: rotate(-1deg);
+}
+
+.tape-top-left {
+  top: -15px;
+  left: -20px;
+  transform: rotate(-35deg);
+}
+
+.hero-content {
+  text-align: center;
+  transform: rotate(1deg); /* Counter-rotate text for natural feel */
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  color: var(--color-coral);
+  margin-bottom: 5px;
+}
+
+.hero-divider {
+  width: 120px;
+  margin: 0 auto var(--space-md);
+  color: var(--color-yellow);
+}
+
+.hero-intro {
+  font-size: 1.15rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   5. BIRTHDAY TWINS DETAIL (Interactive Candles)
+   ========================================================================== */
+.section-twins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.twins-interactive {
+  position: relative;
+  margin-bottom: var(--space-lg);
+  padding: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.twins-interactive:hover {
+  transform: scale(1.05);
+}
+
+.note-click {
+  top: 0;
+  right: -10px;
+  transform: rotate(15deg);
+  color: var(--color-teal);
+}
+
+.candles-wrapper {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.candle-body {
+  width: 30px;
+  height: 80px;
+  border: 2px solid var(--color-cocoa);
+  border-radius: 4px 4px 2px 2px;
+  position: relative;
+}
+
+.candle-body::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: var(--color-cocoa);
+}
+
+.body-teal { background: var(--color-teal); }
+.body-coral { background: var(--color-coral); }
+
+.candle-label {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+/* The Flame */
+.flame {
+  width: 16px;
+  height: 24px;
+  background: var(--color-yellow);
+  border-radius: 50% 50% 20% 20%;
+  border: 2px solid var(--color-cocoa);
+  margin-bottom: 2px;
+  opacity: 0;
+  transform: scale(0) translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.glow-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(240, 206, 114, 0.4) 0%, transparent 60%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Active State when clicked */
+.twins-interactive.is-lit .flame {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: flicker 3s infinite alternate;
+}
+
+.twins-interactive.is-lit .glow-backdrop {
+  opacity: 1;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) skewX(0deg); }
+  25% { transform: scale(1.05) skewX(2deg); }
+  75% { transform: scale(0.95) skewX(-2deg); }
+}
+
+.twins-text {
+  max-width: 550px;
+}
+
+.section-heading {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+/* ==========================================================================
+   6. SISTERHOOD SECTION
+   ========================================================================== */
+.section-sisterhood {
+  display: flex;
+  justify-content: center;
+}
+
+.sisterhood-layout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  max-width: 750px;
+  flex-wrap: wrap;
+}
+
+.scrap-photo-placeholder {
+  width: 180px;
+  height: 200px;
+  background: var(--color-yellow);
+  border: 2px solid var(--color-cocoa);
+  border-radius: var(--paper-radius-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: rotate(-3deg);
+  box-shadow: 4px 6px 0 rgba(67, 54, 58, 0.1);
+}
+
+.tape-top-center {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.doodle-flower {
+  width: 60px;
+  color: var(--color-cocoa);
+  margin-bottom: 10px;
+}
+
+.photo-caption {
+  font-size: 1.5rem;
+}
+
+.sisterhood-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sisterhood-content .handwritten-title {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+  transform: rotate(-2deg);
+}
+
+/* ==========================================================================
+   7. PRIVILEGES INTERLUDE
+   ========================================================================== */
+.section-privileges {
+  display: flex;
+  justify-content: center;
+}
+
+.privileges-box {
+  background: var(--color-teal);
+  color: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--paper-radius-1);
+  border: 2px dashed var(--color-cream);
+  max-width: 600px;
+  position: relative;
+  transform: rotate(1deg);
+}
+
+.privileges-title {
+  color: var(--color-cream);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.privileges-list {
+  list-style: none;
+}
+
+.privileges-list li {
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-cream);
+}
+
+.bullet-doodle {
+  color: var(--color-yellow);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.note-privilege {
+  bottom: -25px;
+  right: 20px;
+  transform: rotate(-5deg);
+  color: var(--color-cocoa);
+}
+
+/* ==========================================================================
+   8. MAIN LETTER
+   ========================================================================== */
+.section-letter {
+  position: relative;
+}
+
+.letter-paper {
+  background: #fff;
+  border: 1px solid var(--color-plum);
+  border-radius: var(--paper-radius-2);
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: inset 0 0 40px rgba(255, 244, 223, 0.5), 8px 8px 0 rgba(217, 130, 118, 0.2);
+}
+
+.tape-corner-left {
+  top: -10px;
+  left: -20px;
+  transform: rotate(-45deg);
+}
+
+.tape-corner-right {
+  bottom: -10px;
+  right: -20px;
+  transform: rotate(-45deg);
+}
+
+.letter-paper p {
+  margin-bottom: var(--space-md);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.letter-signoff {
+  margin-top: var(--space-xl);
+  margin-bottom: 0 !important;
+}
+
+.letter-signature {
+  font-size: 3rem;
+  color: var(--color-plum);
+  margin-top: -10px;
+}
+
+/* Hidden Note Interaction */
+.secret-star {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: var(--color-yellow);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  /* Add dark stroke to star */
+  filter: drop-shadow(1px 1px 0px var(--color-cocoa)) drop-shadow(-1px -1px 0px var(--color-cocoa));
+}
+
+.secret-star:hover, .secret-star:focus {
+  transform: rotate(20deg) scale(1.1);
+  outline: none;
+}
+
+.hidden-note-box {
+  position: absolute;
+  bottom: 80px;
+  right: -10px;
+  background: var(--color-plum);
+  color: var(--color-cream);
+  padding: 15px 25px;
+  border-radius: var(--paper-radius-1);
+  border: 2px solid var(--color-cocoa);
+  width: 250px;
+  box-shadow: 4px 4px 0 var(--color-yellow);
+  transform: translateY(10px) rotate(4deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 20;
+}
+
+.hidden-note-box.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) rotate(4deg);
+}
+
+.hidden-note-box p {
+  color: var(--color-cream);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.close-hidden {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--color-yellow);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   9. CLOSING
+   ========================================================================== */
+.section-closing {
+  text-align: center;
+  padding-bottom: 5vh;
+}
+
+.closing-scrap {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.closing-heading {
+  font-size: 3.5rem;
+  color: var(--color-coral);
+  margin-bottom: var(--space-sm);
+  transform: rotate(-2deg);
+}
+
+.closing-message {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-lg);
+}
+
+.closing-doodle {
+  width: 50px;
+  margin: 0 auto;
+  color: var(--color-teal);
+}
+
+/* ==========================================================================
+   10. LOCK SCREEN 
+   ========================================================================== */
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-cream);
+  padding: var(--space-md);
+}
+
+.lock-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-plum);
+  opacity: 0.95;
+  z-index: -1;
+}
+
+.lock-panel {
+  background: var(--color-cream);
+  border: 2px solid var(--color-cocoa);
+  border-radius: var(--paper-radius-1);
+  padding: var(--space-lg) var(--space-md);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 8px 8px 0 var(--color-coral);
+}
+
+.lock-panel .back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--color-cocoa);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.lock-panel .back-link:hover { color: var(--color-teal); }
+
+.lock-icon {
+  font-size: 0.9rem;
+  color: var(--color-teal);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.lock-title {
+  font-size: 2rem;
+  color: var(--color-cocoa);
+  margin-bottom: var(--space-sm);
+}
+
+.lock-question {
+  color: var(--color-cocoa);
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+  font-size: 1.05rem;
+}
+
+.lock-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#lockInput {
+  background: transparent;
+  border: 2px solid var(--color-cocoa);
+  border-radius: var(--paper-radius-2);
+  color: var(--color-cocoa);
+  padding: 14px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  outline: none;
+}
+
+#lockInput:focus {
+  border-color: var(--color-coral);
+}
+
+#lockSubmit {
+  background: var(--color-teal);
+  color: var(--color-cream);
+  border: 2px solid var(--color-cocoa);
+  border-radius: var(--paper-radius-1);
+  padding: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#lockSubmit:hover { 
+  background: var(--color-coral); 
+  transform: translateY(-2px);
+}
+
+.lock-error {
+  color: var(--color-coral);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+  min-height: 1.2rem;
+  font-weight: 700;
+}
+
+.lock-disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-cocoa);
+  opacity: 0.5;
+  margin-top: var(--space-lg);
+}
+
+.lock-screen.unlocking {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   11. ANIMATIONS & RESPONSIVE
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger-1 { animation: fadeIn 1s ease forwards 0.2s; opacity: 0; }
+.fade-in-stagger-2 { animation: fadeIn 1s ease forwards 0.5s; opacity: 0; }
+.fade-in-stagger-3 { animation: fadeIn 1s ease forwards 0.8s; opacity: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in-up { opacity: 1; transform: none; }
+  .twins-interactive.is-lit .flame { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .sisterhood-layout { flex-direction: column; text-align: center; }
+  .tape-corner-left, .tape-corner-right { display: none; }
+  .letter-paper { padding: var(--space-lg) var(--space-md); }
+  .hidden-note-box { right: 0; width: 100%; transform: translateY(10px); }
+  .hidden-note-box.is-open { transform: translateY(0); }
+}

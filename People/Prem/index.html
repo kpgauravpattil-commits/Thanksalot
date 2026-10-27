@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prem | Golden Chaos</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <!-- The JavaScript will inject the lock question here -->
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Section: The Prem Situation -->
+    <section class="section-hero notebook-paper fade-in-up">
+      <div class="hero-content">
+        <div class="doodle doodle-star">
+          <svg viewBox="0 0 50 50" class="svg-stroke doodle-draw" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 5 L30 20 L45 22 L33 32 L36 45 L25 38 L14 45 L17 32 L5 22 L20 20 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <h1 class="hero-title">Somehow, the chaos<br>became a friendship.</h1>
+        <div class="handwritten-note note-hero">bro logic™</div>
+        
+        <div class="hero-underline">
+          <svg viewBox="0 0 200 20" class="svg-stroke doodle-draw" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 5,15 Q 50,5 100,10 T 195,15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 10,20 Q 60,10 110,15 T 190,20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The School-Bro Connection -->
+    <section class="section-school-bro fade-in-up">
+      <div class="editorial-layout">
+        <div class="editorial-text">
+          <h2>The School Bro</h2>
+          <p>There is a specific kind of comfort in an established school friendship. You skip past the awkward small talk and go straight into the comfortable nonsense. You’re introverted when you want to be, ridiculously chaotic when it counts, and somehow perfectly balanced between the two.</p>
+        </div>
+        
+        <div class="editorial-margin">
+          <div class="sticky-note yellow-sticky tilt-hover">
+            <svg viewBox="0 0 20 20" class="pin-svg" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="4" fill="var(--color-mustard)" opacity="0.8"/>
+            </svg>
+            <p class="handwritten-text">school edition</p>
+          </div>
+          
+          <div class="doodle doodle-arrow">
+            <svg viewBox="0 0 40 40" class="svg-stroke doodle-draw" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 10,30 Q 20,10 35,15 M 25,5 L 35,15 L 30,25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Childish-Logic Department -->
+    <section class="section-logic fade-in-up notebook-paper">
+      <div class="logic-header">
+        <h2>The Logic Department</h2>
+        <div class="stamp-container">
+          <span class="stamp-logic">LOGIC DETECTED</span>
+        </div>
+      </div>
+      
+      <div class="logic-grid">
+        <div class="logic-card text-card">
+          <p>The friendship is fueled by a very specific, occasionally childish way of thinking that defies absolute reason. It's the kind of chaotic energy that shouldn't make sense, but somehow makes every conversation ten times funnier.</p>
+        </div>
+        
+        <div class="logic-card sticky-note cream-sticky tilt-hover">
+          <p class="handwritten-text lg-text">"Wait, hear me out..."</p>
+          <div class="doodle-scribble">
+            <svg viewBox="0 0 100 30" class="svg-stroke doodle-draw" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 10,15 Q 20,5 30,20 T 50,10 T 70,25 T 90,15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. The Quiet Side: The Bro Who Shows Up -->
+    <section class="section-quiet fade-in-up">
+      <div class="quiet-container">
+        <h2>The Bro Who Shows Up</h2>
+        <p>Behind all the jokes, the ridiculous logic, and the school chaos, there’s a quieter truth. You are the kind of friend who would do a lot if I just asked. It’s one thing to have a friend who makes you laugh, but it’s another to have one you know is genuinely solid and fiercely loyal when it actually matters.</p>
+        <p>Even if we act completely unserious most of the time, I value having you in my corner.</p>
+      </div>
+    </section>
+
+    <!-- 5. Closing Note -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-content">
+        <p class="closing-text">Certified school bro. Questionable logic. Solid friendship.</p>
+        <div class="closing-doodle">
+          <svg viewBox="0 0 60 20" class="svg-stroke doodle-draw" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10,10 Q 30,-5 50,10 M 25,10 L 30,15 L 35,10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

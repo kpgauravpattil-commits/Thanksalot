@@ -1,0 +1,225 @@
+/* =========================================
+   UNIVERSAL COLOR PALETTE & VARIABLES
+   ========================================= */
+:root {
+    /* Homepage Colors */
+    --warm-ivory: #F5F0E8;
+    --espresso-brown: #40352F;
+    --dusty-rose: #C68F91;
+    --sage-green: #A3AD91;
+    --muted-taupe: #B9A99A;
+    --soft-cream: #FFFCF6;
+
+    /* Journal Page Colors */
+    --journal-bg: #F3E8D8;
+    --journal-ink: #39332F;
+    --journal-accent: #B87865;
+    --journal-green: #85896B;
+    --journal-paper: #FFF9EF;
+}
+
+/* =========================================
+   BASE STYLES (Applies to all pages)
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--warm-ivory);
+    color: var(--espresso-brown);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 5%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+h1, h2, .logo {
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   HOMEPAGE SPECIFIC STYLES
+   ========================================= */
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--muted-taupe);
+    padding-bottom: 1rem;
+    margin-bottom: 5rem;
+}
+
+.logo { font-size: 1.25rem; font-style: italic; }
+.header-detail { font-size: 0.85rem; color: var(--muted-taupe); font-style: italic; }
+
+.home-main { max-width: 800px; margin: 0 auto; flex: 1; width: 100%; }
+
+.intro { text-align: center; margin-bottom: 4rem; }
+.eyebrow { display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty-rose); margin-bottom: 1rem; }
+.intro h1 { font-size: 2.2rem; margin-bottom: 1.5rem; }
+.intro p { font-size: 1.05rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+.card { background-color: var(--soft-cream); border: 1px solid var(--muted-taupe); padding: 2rem; position: relative; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform: translateY(-3px); }
+
+.card-thank-you:hover { box-shadow: 4px 4px 0px var(--dusty-rose); }
+.card-people:hover { box-shadow: 4px 4px 0px var(--sage-green); }
+.card-things:hover { box-shadow: 4px 4px 0px var(--muted-taupe); }
+.card-quiz { border: 1px dashed var(--espresso-brown); background-color: #EFEBE3; }
+.card-quiz:hover { box-shadow: 4px 4px 0px var(--espresso-brown); }
+
+.mission-stamp { position: absolute; top: 1.5rem; right: 1.5rem; font-family: "Courier New", Courier, monospace; font-size: 0.65rem; color: #9C3B3B; border: 1px solid #9C3B3B; padding: 3px 6px; transform: rotate(4deg); letter-spacing: 0.05em; opacity: 0.8; }
+.card-icon { font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.8; }
+.card h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.card p { font-size: 0.95rem; opacity: 0.8; }
+
+.home-footer { text-align: center; padding-top: 2rem; border-top: 1px solid var(--muted-taupe); font-size: 0.85rem; color: var(--muted-taupe); font-style: italic; margin-top: auto; }
+
+
+/* =========================================
+   JOURNAL PAGE SPECIFIC STYLES
+   ========================================= */
+body.page-journal {
+    background-color: var(--journal-bg);
+    color: var(--journal-ink);
+    padding: 1.5rem 5%;
+}
+
+.journal-nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: 0.85rem;
+    color: var(--journal-green);
+    border-bottom: 1px solid rgba(133, 137, 107, 0.3);
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+
+.journal-nav .back-link {
+    transition: color 0.2s ease;
+}
+.journal-nav .back-link:hover { color: var(--journal-accent); }
+.journal-nav .page-label { font-style: italic; }
+
+.journal-container {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.journal-paper {
+    background-color: var(--journal-paper);
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(57, 51, 47, 0.15);
+    box-shadow: 2px 4px 12px rgba(57, 51, 47, 0.05);
+    position: relative;
+}
+
+.handwritten-intro {
+    display: block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--journal-green);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transform: rotate(-1deg);
+}
+
+.journal-paper h1 {
+    color: var(--journal-ink);
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(57, 51, 47, 0.1);
+    padding-bottom: 1rem;
+}
+
+.journal-body p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.sidenote {
+    float: right;
+    width: 35%;
+    margin: 0 0 1rem 2rem;
+    padding: 1rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--journal-accent);
+    position: relative;
+    transform: rotate(1deg);
+}
+
+.sidenote-line {
+    position: absolute;
+    left: -1rem;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background-color: var(--journal-accent);
+    opacity: 0.5;
+}
+
+.signature {
+    margin-top: 3rem;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--journal-accent);
+}
+
+.journal-footer {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.back-link-bottom {
+    font-size: 0.9rem;
+    color: var(--journal-green);
+    border-bottom: 1px dashed var(--journal-green);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.back-link-bottom:hover {
+    color: var(--journal-accent);
+    border-color: var(--journal-accent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .sidenote {
+        float: none;
+        width: 100%;
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+        transform: rotate(0);
+    }
+    .sidenote-line {
+        left: 0;
+    }
+    .journal-paper {
+        padding: 2rem 1.5rem;
+    }
+    .journal-paper h1 {
+        font-size: 2rem;
+    }
+}

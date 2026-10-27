@@ -1,0 +1,535 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES
+   ========================================================================== */
+:root {
+  /* Matte, cozy night-driving palette */
+  --color-midnight: #18232D;      /* Deep background */
+  --color-slate: #263640;         /* Lock screen / surfaces */
+  --color-charcoal: #30383B;      /* Muted sections */
+  --color-warm-paper: #E7E0D3;    /* Primary text / Warm dashboard cream */
+  --color-foggy: #A7C1CB;         /* Secondary text / muted elements */
+  
+  /* Restrained RGB Ambient Accents */
+  --color-cyan: #78C8D0;
+  --color-violet: #A99AD4;
+  --color-rose: #D39BB0;
+  
+  --font-body: 'DM Sans', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+  --trans-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-midnight);
+  color: var(--color-warm-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & GRAFFITI
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-warm-paper);
+  opacity: 0.85;
+}
+
+.graffiti-note {
+  font-family: var(--font-handwriting);
+  color: var(--color-violet);
+  font-size: 1.5rem;
+  position: absolute;
+  transform: rotate(-4deg);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.svg-stroke { color: var(--color-foggy); }
+.svg-fill { color: var(--color-charcoal); }
+
+/* ==========================================================================
+   3. AMBIENT RGB LIGHTING UTILITIES
+   ========================================================================== */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cyan-glow { background: var(--color-cyan); }
+.violet-glow { background: var(--color-violet); }
+.rose-glow { background: var(--color-rose); }
+.warm-glow { background: var(--color-warm-paper); filter: blur(35px); opacity: 0.1; }
+
+/* ==========================================================================
+   4. LAYOUT & SECTIONS
+   ========================================================================== */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 10;
+}
+
+section {
+  margin-bottom: 120px;
+  position: relative;
+}
+
+/* Hero Section (ETS2 after dark) */
+.section-hero {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.windshield-frame {
+  position: relative;
+  padding: var(--space-xl) var(--space-md);
+  border-radius: 20px 20px 8px 8px;
+  background: linear-gradient(180deg, rgba(38, 54, 64, 0.2) 0%, rgba(24, 35, 45, 0) 100%);
+  border-top: 1px solid rgba(167, 193, 203, 0.1);
+  overflow: hidden;
+}
+
+.glow-left { width: 150px; height: 150px; top: -50px; left: -50px; }
+.glow-right { width: 150px; height: 150px; bottom: -50px; right: -50px; }
+
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  letter-spacing: -0.01em;
+  color: var(--color-warm-paper);
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.note-hero {
+  top: 10%;
+  right: 15%;
+  color: var(--color-cyan);
+  transform: rotate(6deg);
+}
+
+.dashboard-graphic {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.hero-road {
+  width: 100%;
+}
+
+.dash-indicator {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  bottom: 10px;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.cyan-indicator { left: 40px; color: var(--color-cyan); background: var(--color-cyan); opacity: 0.6; }
+.violet-indicator { right: 40px; color: var(--color-violet); background: var(--color-violet); opacity: 0.6; }
+
+/* The Passenger Seat (Split Layout) */
+.split-layout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.split-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.split-text h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-foggy);
+}
+
+.split-visual {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.route-line {
+  width: 100px;
+  opacity: 0.8;
+}
+
+.note-friendship {
+  top: 10px;
+  left: 20px;
+  transform: rotate(-12deg);
+  color: var(--color-rose);
+}
+
+/* ETS2 Section */
+.section-ets2 {
+  text-align: center;
+}
+
+.ets2-container {
+  position: relative;
+  background: rgba(38, 54, 64, 0.3);
+  border: 1px solid rgba(167, 193, 203, 0.05);
+  padding: var(--space-lg);
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.glow-center { width: 200px; height: 100px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.truck-silhouette {
+  width: 120px;
+  margin-bottom: var(--space-md);
+}
+
+.section-ets2 h3 {
+  font-size: 1.6rem;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-sm);
+}
+
+.note-ets2 {
+  bottom: -25px;
+  right: 10%;
+  font-size: 1.3rem;
+}
+
+/* Racing and Chaos */
+.section-racing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.racing-graphic {
+  margin-bottom: var(--space-md);
+}
+
+.tire-track {
+  width: 200px;
+}
+
+.racing-content h2 {
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-warm-paper);
+  margin-bottom: var(--space-sm);
+}
+
+.racing-content p {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* The FH6 Story (Meaningful Stop) */
+.section-fh6 {
+  display: flex;
+  justify-content: center;
+}
+
+.fh6-scene {
+  position: relative;
+  max-width: 650px;
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.glow-window { width: 150px; height: 150px; top: 0; left: 50%; transform: translateX(-50%); }
+
+.laptop-illustration svg {
+  width: 90px;
+  margin-bottom: var(--space-lg);
+  color: var(--color-foggy);
+}
+
+.fh6-text p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-warm-paper);
+  background: rgba(24, 35, 45, 0.4);
+  padding: var(--space-md);
+  border-left: 3px solid var(--color-warm-paper);
+  border-radius: 4px;
+}
+
+/* Secrets & Trust */
+.section-secrets {
+  display: flex;
+  justify-content: center;
+}
+
+.rest-stop-card {
+  position: relative;
+  max-width: 450px;
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.glow-note { width: 100px; height: 100px; top: 20px; left: 50%; transform: translateX(-50%); }
+
+.rest-icon {
+  width: 50px;
+  margin-bottom: var(--space-md);
+  opacity: 0.6;
+}
+
+.note-secrets {
+  bottom: 0;
+  right: 15%;
+}
+
+/* Closing Section */
+.section-closing {
+  text-align: center;
+  padding-top: var(--space-lg);
+}
+
+.closing-text {
+  font-size: 1.2rem;
+  color: var(--color-foggy);
+  margin-bottom: var(--space-md);
+}
+
+.road-end-graphic svg {
+  width: 100px;
+}
+
+/* ==========================================================================
+   5. AMBIENT SNOW EFFECT
+   ========================================================================== */
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snow-flake {
+  position: absolute;
+  top: -10px;
+  background-color: var(--color-foggy);
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+.snow-square {
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px) translateX(0); }
+  100% { transform: translateY(105vh) translateX(30px); }
+}
+
+/* ==========================================================================
+   6. LOCK SCREEN INTERFACE
+   ========================================================================== */
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-midnight);
+  padding: var(--space-md);
+}
+
+.lock-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(38, 54, 64, 0.95) 0%, rgba(24, 35, 45, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.lock-panel {
+  background: rgba(48, 56, 59, 0.4);
+  border: 1px solid rgba(167, 193, 203, 0.15);
+  border-radius: 12px;
+  padding: var(--space-lg) var(--space-md);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.lock-panel .back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-foggy);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.lock-panel .back-link:hover {
+  color: var(--color-cyan);
+}
+
+.lock-icon {
+  font-size: 0.9rem;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lock-title {
+  font-size: 1.75rem;
+  color: var(--color-warm-paper);
+  margin-bottom: var(--space-sm);
+}
+
+.lock-question {
+  color: var(--color-foggy);
+  margin-bottom: var(--space-lg);
+  font-size: 1rem;
+}
+
+.lock-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#lockInput {
+  background: rgba(24, 35, 45, 0.6);
+  border: 1px solid rgba(167, 193, 203, 0.2);
+  color: var(--color-warm-paper);
+  padding: 14px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+#lockInput:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+}
+
+#lockSubmit {
+  background: var(--color-cyan);
+  color: var(--color-midnight);
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+#lockSubmit:hover { 
+  background: var(--color-warm-paper); 
+}
+
+.lock-error {
+  color: var(--color-rose);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+  min-height: 1.2rem;
+}
+
+.lock-disclaimer {
+  font-size: 0.8rem;
+  color: rgba(231, 224, 211, 0.3);
+  margin-top: var(--space-lg);
+}
+
+.lock-screen.unlocking {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   7. ANIMATIONS & REDUCED MOTION
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+  
+  #snow-container {
+    display: none;
+  }
+}

@@ -1,0 +1,512 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES
+   ========================================================================== */
+:root {
+  /* Golden Chaos Palette */
+  --color-butter: #F2D77A;       /* Warm yellow for panels/sticky notes */
+  --color-cream: #FFF5D9;        /* Lightest background */
+  --color-warm-paper: #F4EBD5;   /* Secondary background / Notebook paper */
+  --color-mustard: #C4A044;      /* Muted accent for lines and stamps */
+  --color-golden-brown: #82683A; /* Deeper accent */
+  --color-charcoal: #38352F;     /* Soft dark text */
+  --color-sage: #A6AD86;         /* Dusty accent */
+  
+  --font-body: 'DM Sans', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+  --trans-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --trans-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-warm-paper);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & DOODLES
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-charcoal);
+}
+
+p {
+  color: var(--color-charcoal);
+  opacity: 0.9;
+}
+
+.handwritten-text, .handwritten-note {
+  font-family: var(--font-handwriting);
+  color: var(--color-golden-brown);
+}
+
+.handwritten-note {
+  font-size: 1.8rem;
+  position: absolute;
+  transform: rotate(-6deg);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.svg-stroke {
+  color: var(--color-mustard);
+}
+
+.doodle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.stamp-logic {
+  border: 3px solid var(--color-golden-brown);
+  color: var(--color-golden-brown);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: var(--font-handwriting);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-12deg);
+  display: inline-block;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   3. LAYOUT & UTILITIES
+   ========================================================================== */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 10;
+}
+
+section {
+  margin-bottom: 120px;
+  position: relative;
+  border-radius: 12px;
+}
+
+/* Notebook Paper Effect */
+.notebook-paper {
+  background-color: var(--color-cream);
+  background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(196, 160, 68, 0.15) 31px, rgba(196, 160, 68, 0.15) 32px);
+  border-left: 2px solid rgba(166, 173, 134, 0.4); /* Sage margin line */
+  padding: var(--space-lg);
+  box-shadow: 0 4px 20px rgba(56, 53, 47, 0.05);
+}
+
+/* Sticky Note Component */
+.sticky-note {
+  padding: var(--space-md);
+  border-radius: 2px 2px 10px 2px;
+  box-shadow: 2px 4px 12px rgba(56, 53, 47, 0.1);
+  position: relative;
+  transition: transform var(--trans-bounce), box-shadow var(--trans-smooth);
+}
+
+.yellow-sticky {
+  background-color: var(--color-butter);
+}
+
+.cream-sticky {
+  background-color: var(--color-cream);
+  border: 1px solid rgba(196, 160, 68, 0.2);
+}
+
+.tilt-hover:hover {
+  transform: rotate(2deg) translateY(-5px);
+  box-shadow: 4px 8px 16px rgba(56, 53, 47, 0.15);
+}
+
+.pin-svg {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   4. SECTIONS
+   ========================================================================== */
+
+/* Hero Section */
+.section-hero {
+  text-align: center;
+  margin-top: 5vh;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.hero-content {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+.note-hero {
+  bottom: -20px;
+  right: -30px;
+  font-size: 2rem;
+}
+
+.hero-underline {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  max-width: 400px;
+  z-index: 1;
+}
+
+.doodle-star {
+  top: -40px;
+  left: -40px;
+  width: 50px;
+}
+
+/* School Bro Section */
+.section-school-bro {
+  padding: 0 var(--space-md);
+}
+
+.editorial-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.editorial-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.editorial-text h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.editorial-margin {
+  width: 200px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.editorial-margin .sticky-note {
+  transform: rotate(4deg);
+  width: 100%;
+  text-align: center;
+}
+
+.doodle-arrow {
+  width: 40px;
+  transform: rotate(20deg);
+}
+
+@media (max-width: 600px) {
+  .editorial-margin {
+    width: 100%;
+    align-items: flex-start;
+  }
+}
+
+/* Logic Department */
+.section-logic {
+  margin-top: var(--space-xl);
+}
+
+.logic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.logic-header h2 {
+  font-size: 2rem;
+}
+
+.logic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.lg-text {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.doodle-scribble {
+  width: 100px;
+  margin: 0 auto;
+}
+
+/* Quiet Side (Appreciation) */
+.section-quiet {
+  background-color: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: 12px;
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.quiet-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quiet-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-golden-brown);
+}
+
+.quiet-container p {
+  margin-bottom: var(--space-sm);
+  font-size: 1.15rem;
+}
+
+/* Closing Section */
+.section-closing {
+  text-align: center;
+  padding-top: var(--space-lg);
+}
+
+.closing-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+  color: var(--color-golden-brown);
+}
+
+.closing-doodle {
+  width: 60px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   5. LOCK SCREEN INTERFACE
+   ========================================================================== */
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-charcoal);
+  padding: var(--space-md);
+}
+
+.lock-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(56, 53, 47, 0.95) 0%, rgba(30, 28, 25, 0.98) 100%);
+  backdrop-filter: blur(8px);
+  z-index: -1;
+}
+
+.lock-panel {
+  background: var(--color-warm-paper);
+  border-radius: 12px;
+  padding: var(--space-lg) var(--space-md);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.lock-panel .back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-golden-brown);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.lock-panel .back-link:hover {
+  color: var(--color-mustard);
+}
+
+.lock-icon {
+  font-size: 0.9rem;
+  color: var(--color-mustard);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lock-title {
+  font-size: 1.75rem;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.lock-question {
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  margin-bottom: var(--space-lg);
+  font-size: 1rem;
+}
+
+.lock-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#lockInput {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-mustard);
+  color: var(--color-charcoal);
+  padding: 14px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  font-family: inherit;
+}
+
+#lockInput:focus {
+  outline: none;
+  border-color: var(--color-golden-brown);
+  background: #FFF;
+}
+
+#lockSubmit {
+  background: var(--color-butter);
+  color: var(--color-charcoal);
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  font-family: inherit;
+}
+
+#lockSubmit:hover { 
+  background: var(--color-mustard); 
+}
+#lockSubmit:active {
+  transform: scale(0.98);
+}
+
+.lock-error {
+  color: #D35B5B;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+  min-height: 1.2rem;
+}
+
+.lock-disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-charcoal);
+  opacity: 0.5;
+  margin-top: var(--space-lg);
+}
+
+.lock-screen.unlocking {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   6. ANIMATIONS & REDUCED MOTION
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SVG Line Drawing Animation */
+.doodle-draw path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-visible .doodle-draw path {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .doodle-draw path {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}

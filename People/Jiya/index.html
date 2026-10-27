@@ -1,0 +1,176 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiya</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Secured Issue.</div>
+      <h1 class="lock-title">Identity Check</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter password..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only authorized readers can open this issue.</p>
+    </div>
+  </div>
+
+  <!-- MAGAZINE COVER -->
+  <header id="magazineCover" class="magazine-cover">
+    <div class="cover-wrapper">
+      <div class="issue-label">Vol. 1 &mdash; Limited Edition</div>
+      
+      <div class="cover-title-group">
+        <h1 class="magazine-title">JIYA <span class="times-symbol">&times;</span> MODAK</h1>
+        
+        <!-- The Modak Easter Egg -->
+        <button class="gold-stamp" id="modakStamp" aria-label="Reveal hidden note" tabindex="0">
+          <span class="stamp-inner">M</span>
+        </button>
+        <div class="hidden-note" id="hiddenStampNote" hidden>
+          <p class="handwritten-text">Still not entirely sure how I became a sweet dumpling, but I’ll take it.</p>
+        </div>
+      </div>
+
+      <p class="cover-subtitle">An unexpectedly entertaining friendship, documented for absolutely no reason.</p>
+      
+      <div class="cover-actions">
+        <button id="btnOpenIssue" class="btn-editorial">Open the issue</button>
+        <p class="scroll-hint">or just scroll</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT (The Issue) -->
+  <main class="page-wrapper" id="mainIssue">
+    
+    <!-- 1. The Origin Story Spread -->
+    <section class="editorial-spread section-origin fade-in-up">
+      <div class="spread-left">
+        <span class="chapter-mark">01 &mdash; The Prologue</span>
+        <h2 class="editorial-heading">From the IT List to Real Life</h2>
+      </div>
+      <div class="spread-right">
+        <p class="drop-cap">I</p>
+        <p class="article-text">
+          t started with a name and a roll number on a college IT list. I’ll admit, I had a small crush initially when I found your Instagram and sent that first message. But what began as ordinary classmate interactions—exchanging notes, figuring out assignments, and surviving the academic chaos—quietly shifted into something much better. 
+        </p>
+        <p class="article-text">
+          Somewhere between helping each other with college stuff and casual conversations, the crush faded into the background, making way for a genuinely great friendship.
+        </p>
+        <div class="decorative-line"></div>
+      </div>
+    </section>
+
+    <!-- 2. The Chaos Section -->
+    <section class="editorial-spread section-chaos fade-in-up">
+      <div class="chaos-container">
+        <div class="chaos-text-block">
+          <h2 class="editorial-heading italic-heading">Controlled Chaos &amp; Unhinged Commentary</h2>
+          <p class="article-text">
+            There is a very specific energy to your humor. It’s a mix of flirty-in-the-jokes banter, sudden mischievous remarks, and moments where you are just effortlessly unhinged. 
+          </p>
+          
+          <button id="btnPlotTwist" class="btn-twist">Reveal Plot Twist</button>
+          <div id="twistContent" class="twist-content" hidden>
+            <p class="handwritten-text gold-ink">Honestly? The chaos keeps things highly entertaining. Never tone it down.</p>
+          </div>
+        </div>
+
+        <div class="chaos-visuals">
+          <div class="floating-annotation" style="top: 10%; right: 20%; transform: rotate(4deg);">
+            <p class="handwritten-text">pure mischief.</p>
+          </div>
+          <div class="floating-annotation" style="bottom: 15%; left: 10%; transform: rotate(-6deg);">
+            <p class="handwritten-text">wait, you actually said that?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Trust Part -->
+    <section class="editorial-spread section-trust fade-in-up">
+      <div class="trust-center-block">
+        <span class="chapter-mark centered-mark">02 &mdash; Quiet Comfort</span>
+        <h2 class="editorial-heading">The Value of Trust</h2>
+        <p class="article-text center-text">
+          Beneath the jokes and the college routine, there is a level of comfort that grew entirely on its own. The fact that you trust me enough to open up and share personal things—things you aren't comfortable telling other boys—is something I don't take lightly. 
+        </p>
+        <p class="article-text center-text">
+          Having a safe space to just talk, without filters or overthinking, is rare. I appreciate that we've built that kind of understanding.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. The Mystery Gift Section -->
+    <section class="editorial-spread section-gift fade-in-up">
+      <div class="gift-wrapper">
+        <div class="gift-text">
+          <h2 class="editorial-heading italic-heading">The Unsolved Case of the Gift Box</h2>
+          <p class="article-text">
+            I still have the small gift box you gave me. I haven't officially cracked the case yet. Could it be a watch? Could it be empty? Could it be a completely random object? The mystery remains.
+          </p>
+        </div>
+
+        <div class="gift-interaction">
+          <div class="gift-box" id="mysteryGiftBox" tabindex="0" role="button" aria-label="Open the mystery gift">
+            <div class="box-lid">
+              <div class="ribbon-vertical"></div>
+              <div class="ribbon-horizontal"></div>
+              <div class="ribbon-bow"></div>
+            </div>
+            <div class="box-body">
+              <div class="ribbon-vertical"></div>
+              <div class="box-label">FROM: Gaurav</div>
+            </div>
+            <!-- The note inside -->
+            <div class="gift-note-inside">
+              <p class="handwritten-text">Mari ladliii<br>Best friend ever!<br>Wait for your B'day!</p>
+            </div>
+          </div>
+          <p class="gift-instruction">Click the box to inspect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Appreciation Note -->
+    <section class="editorial-spread section-appreciation fade-in-up">
+      <div class="appreciation-content">
+        <p class="article-text">
+          What started as navigating college together turned into a friendship I truly value. Thanks for the humor, the trust, and the brilliant chaos you bring to the table. I’m genuinely glad we became friends.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Closing Section -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-mark">
+        <div class="gold-line-vertical"></div>
+        <p class="closing-note">END OF ISSUE</p>
+        <p class="handwritten-text closing-wink">Until the next volume.</p>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

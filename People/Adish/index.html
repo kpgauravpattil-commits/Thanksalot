@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adi-001 | Archive</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- Lock screen interface -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; Back to people</a>
+      <div class="lock-icon">Secured file.</div>
+      <h1 class="lock-title">Security check</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">Unlock</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Authorized personnel only.</p>
+    </div>
+  </div>
+
+  <!-- Original content -->
+  <header class="archive-header fade-in">
+    <div class="archive-id">File id: Adi-001</div>
+    <div class="archive-status">Status: Active</div>
+  </header>
+
+  <main class="archive-main">
+    <section class="section-hero fade-in-up">
+      <h1 class="hero-title">Adish.</h1>
+      <p class="hero-subtitle">Personnel record // best bro.</p>
+    </section>
+
+    <section class="section-origin layout-grid fade-in-up">
+      <div class="grid-panel primary-panel">
+        <div class="panel-label">Profile data</div>
+        <h2 class="section-heading">The foundation</h2>
+        <p class="body-text">This is a documented history of our friendship. It has survived countless late-night gaming streaks, constant insults, and ordinary days of just hanging out. No heavy drama, just a solid bond that works naturally.</p>
+        <div class="metadata-group">
+          <span class="meta-tag">Classification: Best bro</span>
+          <span class="meta-tag">Loyalty status: Unquestioned</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-chaos fade-in-up">
+      <div class="status-panel">
+        <div class="panel-header">
+          <span class="tab-label">Operational logs</span>
+          <span class="dot-indicator"></span>
+        </div>
+        <div class="panel-body layout-split">
+          <div class="split-left">
+            <h2 class="section-heading">The late shift</h2>
+            <p class="body-text">Our schedule usually devolves into late-night gaming sessions that turn into hours of absolute nonsense. It is a blur of a screen glow, chaotic gameplay, and talking about everything and nothing until the sun comes up.</p>
+          </div>
+          <div class="split-right">
+            <ul class="gaming-stats">
+              <li><span class="stat-label">Gaming sessions</span><span class="stat-val">Uncountable hours</span></li>
+              <li><span class="stat-label">Vibe check</span><span class="stat-val">Always comfortable</span></li>
+              <li><span class="stat-label">Current status</span><span class="stat-val">Still annoying each other</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-roast fade-in-up">
+      <div class="roast-block">
+        <span class="tab-label accent-purple">Roasting department</span>
+        <h2 class="section-heading">Incident report</h2>
+        <p class="body-text">Let it be known for the record that neither of us is safe. Our friendship consists of a continuous exchange of roasts, insults, and messing with each other. If we are not actively making fun of a minor mistake the other person made, something is probably wrong.</p>
+      </div>
+    </section>
+
+    <section class="section-appreciation fade-in-up">
+      <div class="editorial-block">
+        <h2 class="section-heading editorial-heading">The part that actually matters.</h2>
+        <p class="body-text">Underneath the jokes and the gaming, you are genuinely one of my closest bros. I don't need to make a big emotional deal out of it, but knowing you have my back means a lot to me.</p>
+        <p class="body-text">We just get each other's vibe. We look out for one another without turning it into a massive conversation. Having someone I can just hang out with, act like an idiot around, and trust completely is rare. You are a real one.</p>
+      </div>
+    </section>
+
+    <section class="section-evidence fade-in-up">
+      <div class="evidence-header">
+        <span class="tab-label">Visual evidence</span>
+        <p class="meta-tag">Archived screenshots and records (Click to expand)</p>
+      </div>
+      
+      <div class="photo-grid">
+        <button class="photo-card" aria-label="View photo 1" data-image="placeholder-1.jpg" data-caption="File: Late night sessions">
+          <div class="photo-placeholder">
+            <span class="placeholder-text">[ Insert image 1 here ]</span>
+          </div>
+          <div class="photo-caption">
+            <span class="caption-id">Img_01</span>
+            <span class="caption-desc">Gaming streak</span>
+          </div>
+        </button>
+
+        <button class="photo-card" aria-label="View photo 2" data-image="placeholder-2.jpg" data-caption="File: Standard hangout">
+          <div class="photo-placeholder">
+            <span class="placeholder-text">[ Insert image 2 here ]</span>
+          </div>
+          <div class="photo-caption">
+            <span class="caption-id">Img_02</span>
+            <span class="caption-desc">The usual nonsense</span>
+          </div>
+        </button>
+
+        <button class="photo-card" aria-label="View photo 3" data-image="placeholder-3.jpg" data-caption="File: Archive record">
+          <div class="photo-placeholder">
+            <span class="placeholder-text">[ Insert image 3 here ]</span>
+          </div>
+          <div class="photo-caption">
+            <span class="caption-id">Img_03</span>
+            <span class="caption-desc">Unquestioned loyalty</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <section class="section-final fade-in-up">
+      <div class="open-note">
+        <span class="tab-label">Archive status</span>
+        <div class="open-note-inner">
+          <p class="body-text">The main file might be closing, but the roasting department remains permanently operational.</p>
+          <p class="body-text signature">Here is to the next session, Suddu.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="archive-footer fade-in">
+    <div class="footer-id">Adi-001 End of record</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">Close x</button>
+    <div class="lightbox-content">
+      <div class="lightbox-image-container">
+        <div class="lightbox-visual-placeholder" id="lightboxVisual"></div>
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

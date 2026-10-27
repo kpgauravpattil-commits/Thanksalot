@@ -1,0 +1,463 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & BASE STYLES
+   ========================================================================== */
+:root {
+  /* Matte, atmospheric ocean/night palette */
+  --color-deep-blue: #2A3640;     /* Background */
+  --color-dark-blue: #1D262D;     /* Lock screen / darker sections */
+  --color-warm-paper: #F0EAE1;    /* Primary text */
+  --color-misty-lavender: #C6B9D8;/* Accents */
+  --color-ocean-blue: #8EADBF;    /* Accents */
+  --color-dusty-plum: #80677F;    /* Deep accents */
+  --color-sage-blue: #A9BCBC;     /* Subtle text */
+  
+  --font-body: 'DM Sans', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+  --trans-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-deep-blue);
+  color: var(--color-warm-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & GRAFFITI
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-warm-paper);
+  opacity: 0.85;
+}
+
+.graffiti-note {
+  font-family: var(--font-handwriting);
+  color: var(--color-misty-lavender);
+  font-size: 1.5rem;
+  position: absolute;
+  transform: rotate(-4deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.svg-stroke { color: var(--color-ocean-blue); }
+.svg-fill { color: var(--color-dusty-plum); }
+
+/* ==========================================================================
+   3. LAYOUT & SECTIONS
+   ========================================================================== */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 10;
+}
+
+section {
+  margin-bottom: 120px;
+  position: relative;
+}
+
+/* Hero Section */
+.section-hero {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  color: var(--color-warm-paper);
+}
+
+.note-hero {
+  top: -20px;
+  right: 10%;
+  color: var(--color-ocean-blue);
+  transform: rotate(6deg);
+}
+
+.abstract-minds-graphic {
+  width: 200px;
+  margin: var(--space-lg) auto 0;
+  opacity: 0.7;
+}
+
+/* Instagram Hello */
+.section-hello {
+  display: flex;
+  justify-content: center;
+}
+
+.hello-container {
+  background: rgba(240, 234, 225, 0.03);
+  border: 1px solid rgba(198, 185, 216, 0.1);
+  padding: var(--space-lg);
+  border-radius: 12px;
+  max-width: 500px;
+  position: relative;
+}
+
+.message-bubble {
+  background: var(--color-ocean-blue);
+  color: var(--color-dark-blue);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 16px 16px 16px 4px;
+  font-size: 1rem;
+  margin-bottom: var(--space-md);
+}
+
+.note-hello {
+  bottom: -30px;
+  right: 20px;
+  font-size: 1.3rem;
+  color: var(--color-sage-blue);
+}
+
+/* Same-Brain Energy */
+.split-layout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.split-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.split-text h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-misty-lavender);
+}
+
+.split-visual {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.split-visual svg {
+  width: 150px;
+}
+
+.note-samebrain {
+  top: -20px;
+  left: 0;
+  transform: rotate(-10deg);
+}
+
+/* Distance Section */
+.section-distance {
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+
+.distance-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: var(--space-md);
+  opacity: 0.6;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-misty-lavender);
+  border-radius: 50%;
+}
+
+.distance-graphic svg {
+  width: 150px;
+  height: 20px;
+}
+
+.distance-text {
+  font-size: 0.95rem;
+  color: var(--color-sage-blue);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Gaming & Conversations */
+.section-gaming {
+  display: flex;
+  justify-content: center;
+}
+
+.gaming-card {
+  text-align: center;
+  max-width: 400px;
+}
+
+.scribble-icon {
+  width: 80px;
+  margin-bottom: var(--space-md);
+  opacity: 0.7;
+}
+
+/* Appreciation / Meaningful Part */
+.section-appreciation {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 120px;
+}
+
+.section-appreciation p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-warm-paper);
+}
+
+/* Closing */
+.section-closing {
+  text-align: center;
+  border-top: 1px solid rgba(198, 185, 216, 0.15);
+  padding-top: var(--space-lg);
+}
+
+.closing-text {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-md);
+}
+
+.zodiac-signatures {
+  font-size: 1.5rem;
+  color: var(--color-ocean-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  opacity: 0.8;
+}
+
+.zodiac-divider {
+  font-size: 1rem;
+  color: var(--color-sage-blue);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   4. AMBIENT SNOW EFFECT
+   ========================================================================== */
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snow-flake {
+  position: absolute;
+  top: -10px;
+  background-color: var(--color-warm-paper);
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px) translateX(0); }
+  100% { transform: translateY(105vh) translateX(20px); }
+}
+
+/* ==========================================================================
+   5. LOCK SCREEN INTERFACE (Preserved behavior, mapped to palette)
+   ========================================================================== */
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-dark-blue);
+  padding: var(--space-md);
+}
+
+.lock-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(52, 70, 83, 0.9) 0%, rgba(29, 38, 45, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.lock-panel {
+  background: rgba(42, 54, 64, 0.8);
+  border: 1px solid rgba(198, 185, 216, 0.1);
+  border-radius: 12px;
+  padding: var(--space-lg) var(--space-md);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.lock-panel .back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-sage-blue);
+  text-decoration: none;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.lock-panel .back-link:hover {
+  color: var(--color-misty-lavender);
+}
+
+.lock-icon {
+  font-size: 0.9rem;
+  color: var(--color-dusty-plum);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lock-title {
+  font-size: 1.75rem;
+  color: var(--color-warm-paper);
+  margin-bottom: var(--space-sm);
+}
+
+.lock-question {
+  color: var(--color-sage-blue);
+  margin-bottom: var(--space-lg);
+  font-size: 1rem;
+}
+
+.lock-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#lockInput {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(198, 185, 216, 0.2);
+  color: var(--color-warm-paper);
+  padding: 14px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+#lockInput:focus {
+  outline: none;
+  border-color: var(--color-ocean-blue);
+}
+
+#lockSubmit {
+  background: var(--color-ocean-blue);
+  color: var(--color-dark-blue);
+  border: none;
+  padding: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+#lockSubmit:hover { 
+  background: var(--color-misty-lavender); 
+}
+
+.lock-error {
+  color: #D88B8B;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+  min-height: 1.2rem;
+}
+
+.lock-disclaimer {
+  font-size: 0.8rem;
+  color: rgba(240, 234, 225, 0.3);
+  margin-top: var(--space-lg);
+}
+
+.lock-screen.unlocking {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   6. ANIMATIONS & REDUCED MOTION
+   ========================================================================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--trans-smooth), transform var(--trans-smooth);
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+  
+  #snow-container {
+    display: none;
+  }
+}

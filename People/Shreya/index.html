@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya | Blue & Sage</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <!-- Shreya's specific question config will inject here -->
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Section: The Little Things -->
+    <section class="section-hero fade-in-up">
+      <div class="hero-content">
+        <h1 class="hero-title">Some friendships grow through the little things.</h1>
+        <div class="handwritten-note note-hero">college edition</div>
+        
+        <div class="organic-shape-graphic">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+            <path d="M 20,40 Q 60,10 100,40 T 180,40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M 40,60 Q 80,30 120,60 T 160,60" fill="none" stroke="var(--color-sage)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The Reel Department -->
+    <section class="section-reels fade-in-up">
+      <div class="reels-card">
+        <div class="message-bubble-reel">
+          <span class="reel-tag">reel shared</span>
+          <p class="reel-subtext">(and occasionally unsensed just in case)</p>
+        </div>
+        <div class="reels-story">
+          <p>Exchanging reels has basically become our default language. And yes, I notice when you unsend them because you worry you're sending too many—don't worry, the reel spam is always welcome.</p>
+          <div class="handwritten-note note-reels">oops, unsent.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. College Friendship -->
+    <section class="section-college fade-in-up">
+      <div class="split-layout">
+        <div class="split-text">
+          <h2>Getting Through College</h2>
+          <p>Navigating college life is infinitely easier when you have someone who's down to help with coursework, share notes, or just talk about how chaotic everything is. No grand dramatic arcs, just reliable everyday company.</p>
+        </div>
+        <div class="split-visual">
+          <div class="paper-note tilt-note">
+            <p class="handwritten-text">thanks for the notes!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. A Little Trust -->
+    <section class="section-trust fade-in-up">
+      <div class="trust-container">
+        <div class="sage-panel">
+          <p>Sometimes you open up, talk through frustrations, or share what's on your mind. It's a quiet reminder of why I value our friendship—having a comfortable space to be completely honest without overthinking it.</p>
+          <div class="handwritten-note note-trust">safe space.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. A Short Appreciation Note -->
+    <section class="section-appreciation fade-in-up">
+      <div class="appreciation-content">
+        <p>Thanks for being such a great part of my college routine, for all the random reels, and for always being ready to help out when things get hectic. Glad we crossed paths.</p>
+      </div>
+    </section>
+
+    <!-- 6. Closing Section -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-content">
+        <p class="closing-text">Same vibe. Different day.</p>
+        <div class="closing-graphic">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="svg-stroke">
+            <path d="M 10,10 Q 50,0 90,10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khushi | Two Birthdays, One Sisterhood</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- LOCK SCREEN INTERFACE -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-bg"></div>
+    <div class="lock-panel">
+      <a href="../../index.html" class="back-link">&larr; BACK TO PEOPLE</a>
+      <div class="lock-icon">Locked.</div>
+      <h1 class="lock-title">Answer this</h1>
+      <p class="lock-question" id="lockQuestionText">Loading question...</p>
+      
+      <div class="lock-input-group">
+        <input type="text" id="lockInput" placeholder="Enter your answer..." autocomplete="off">
+        <button id="lockSubmit">UNLOCK</button>
+      </div>
+      
+      <p id="lockError" class="lock-error" hidden></p>
+      <p class="lock-disclaimer">Only you can unlock this page.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    
+    <!-- 1. Opening Scene -->
+    <section class="section-hero fade-in-up">
+      <div class="hero-scrap-box">
+        <div class="tape tape-top-left"></div>
+        <div class="hero-content">
+          <h1 class="hero-title handwritten-title fade-in-stagger-1">Okay, birthday twin...</h1>
+          <div class="hero-divider fade-in-stagger-2">
+            <svg viewBox="0 0 100 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M 0 5 Q 25 -5 50 5 T 100 5"/></svg>
+          </div>
+          <p class="hero-intro fade-in-stagger-3">
+            Today is October 27th my birthday. But instead of just making today about myself, I’m taking the time to thank the people who actually make my life better. And obviously, my tuition friend and sister deserves her own little corner of this project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The Birthday-Twin Detail -->
+    <section class="section-twins fade-in-up">
+      <div class="twins-interactive" id="candleGroup" tabindex="0" role="button" aria-label="Light the candles">
+        <div class="handwritten-note note-click">click us!</div>
+        <div class="candles-wrapper">
+          <!-- Gaurav's Candle -->
+          <div class="candle candle-left">
+            <div class="flame"></div>
+            <div class="candle-body body-teal"></div>
+            <span class="candle-label handwritten-text">Me</span>
+          </div>
+          <!-- Khushi's Candle -->
+          <div class="candle candle-right">
+            <div class="flame"></div>
+            <div class="candle-body body-coral"></div>
+            <span class="candle-label handwritten-text">You</span>
+          </div>
+        </div>
+        <div class="glow-backdrop"></div>
+      </div>
+      <div class="twins-text">
+        <h2 class="section-heading">Two Birthdays, One Bro-Sishood.</h2>
+        <p class="body-text">
+          Sharing a birthday is such a fun, random detail of our friendship. It’s like the universe decided to group us together, and honestly, I'm pretty glad it did.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. The Sisterhood Section -->
+    <section class="section-sisterhood fade-in-up">
+      <div class="sisterhood-layout">
+        <div class="scrap-photo-placeholder">
+          <div class="tape tape-top-center"></div>
+          <p class="handwritten-text photo-caption">best sister vibes</p>
+          <svg viewBox="0 0 100 100" class="doodle-flower" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 50 C 50 20, 70 20, 50 50 C 80 50, 80 70, 50 50 C 50 80, 30 80, 50 50 C 20 50, 20 30, 50 50 Z" />
+            <circle cx="50" cy="50" r="5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="sisterhood-content">
+          <h2 class="handwritten-title text-plum">A different kind of sister.</h2>
+          <p class="body-text">
+            You don't have to grow up in the same house as someone to consider them family. Being able to call you my sister means a lot to me. It's a comfortable, genuine kind of friendship that doesn't need to be loud or dramatic to be real. 
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Playful Interlude -->
+    <section class="section-privileges fade-in-up">
+      <div class="privileges-box">
+        <h3 class="privileges-title">Unofficial Privileges of Being Birthday Twins</h3>
+        <ul class="privileges-list">
+          <li><span class="bullet-doodle">✦</span> Automatically knowing exactly how old the other person is today.</li>
+          <li><span class="bullet-doodle">✦</span> Never having an excuse to forget the date.</li>
+          <li><span class="bullet-doodle">✦</span> Getting to share a ridiculously specific, chaotic sister-brother dynamic.</li>
+        </ul>
+        <div class="handwritten-note note-privilege">it's just science.</div>
+      </div>
+    </section>
+
+    <!-- 5. The Main Appreciation Letter -->
+    <section class="section-letter fade-in-up">
+      <div class="letter-paper">
+        <div class="tape tape-corner-left"></div>
+        <div class="tape tape-corner-right"></div>
+        
+        <p>Dear Khushi,</p>
+        
+        <p>Since today is October 27th, we both know exactly what day it is. But I want to make this completely clear: this letter isn't a birthday card for you. It’s a thank you note from me.</p>
+        
+        <p>I built this entire website because I wanted to take my own birthday as an opportunity to appreciate the people who matter to me. When I was putting together the list of people who needed their own page, you were absolutely on it. You’re my tuition friend, my birthday twin, and honestly, the best sister I could ask for.</p>
+        
+        <p>I really value the sisterly bond we have. We might not have the most dramatic backstory or a million years of history, but the friendship we do have is warm, real, and something I genuinely appreciate. It's nice having someone in my life who just naturally fits into that sister role.</p>
+        
+        <p>I’m really glad we met. As I look ahead to my own next year, my biggest hope for you is that you continue to have good things come your way. I hope you experience absolute peace, happiness, and confidence in whatever you choose to do. You deserve to be surrounded by people who appreciate you just as much as I do.</p>
+        
+        <p>Thank you for being part of my life, twin. I wouldn't trade our sisterhood for anything.</p>
+        
+        <p class="letter-signoff">Yours truly,</p>
+        <p class="letter-signature handwritten-title">Gaurav</p>
+
+        <!-- 6. Hidden Interaction -->
+        <button class="secret-star" id="secretTrigger" aria-label="Reveal a hidden note">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+        
+        <div class="hidden-note-box" id="hiddenNote">
+          <button class="close-hidden" id="closeHidden">&times;</button>
+          <p class="handwritten-text">P.S. Just a quick reminder that I’m incredibly lucky to have you as my sister.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Closing Scene -->
+    <section class="section-closing fade-in-up">
+      <div class="closing-scrap">
+        <h2 class="closing-heading handwritten-title">Glad you're my birthday twin.</h2>
+        <p class="closing-message">
+          Thank you for being my sister and my friend, Khushi. Making this page for you was the perfect way to spend my birthday.
+        </p>
+        <div class="closing-doodle">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M20 10 L20 30 M10 20 L30 20" transform="rotate(45 20 20)"/>
+            <circle cx="20" cy="20" r="15" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
