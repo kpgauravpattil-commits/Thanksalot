@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Khushi's Lock Config
   const LOCK_CONFIG = {
     question: "What connection do we share?",
-    answers: ["birthday", "birthdays", "birthday twin", "same birthday"], 
+    answers: ["BRO", "BDAYS", "SISTER BRO", "Bro Sis"], 
     errorMessage: "Try again."
   };
 
